@@ -1,0 +1,28 @@
+{
+  "improvemyselfApp": {
+    "splitBook": {
+      "home": {
+        "title": "Split Books",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Split Book",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Split Book",
+        "notFound": "No Split Books found"
+      },
+      "created": "Một Split Book mới được tạo với định danh { param }",
+      "updated": "Một Split Book cập nhật với định danh { param }",
+      "deleted": "Một Split Book đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Split Book { id }?"
+      },
+      "detail": {
+        "title": "Split Book"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "splitBookDetail": "Split Book Detail",
+      "splitBookJoiner": "Split Book Joiner",
+      "applicationUser": "Application User"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "improvemyselfApp": {
+    "splitBookDetail": {
+      "home": {
+        "title": "Split Book Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Split Book Detail",
+        "createOrEditLabel": "Create or edit a Split Book Detail",
+        "notFound": "No Split Book Details found"
+      },
+      "created": "A new Split Book Detail is created with identifier { param }",
+      "updated": "A Split Book Detail is updated with identifier { param }",
+      "deleted": "A Split Book Detail is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Split Book Detail { id }?"
+      },
+      "detail": {
+        "title": "Split Book Detail"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "description": "Description",
+      "personName": "Person Name",
+      "transactionDate": "Transaction Date",
+      "transactionType": "Transaction Type",
+      "groupId": "Group Id",
+      "joinerRole": "Joiner Role",
+      "splitBookJoiner": "Split Book Joiner",
+      "splitBook": "Split Book"
+    }
+  }
+}

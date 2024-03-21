@@ -7,7 +7,18 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "applicationUser": "Application User",
+        "ledger": "Ledger",
+        "transaction": "Transaction",
+        "goal": "Goal",
+        "paymentMethod": "Payment Method",
+        "paymentCategory": "Payment Category",
+        "objective": "Objective",
+        "splitBook": "Split Book",
+        "splitBookDetail": "Split Book Detail",
+        "splitBookJoiner": "Split Book Joiner",
+        "note": "Note"
       },
       "account": {
         "main": "Account",

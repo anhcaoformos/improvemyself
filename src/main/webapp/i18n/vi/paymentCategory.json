@@ -1,0 +1,30 @@
+{
+  "improvemyselfApp": {
+    "paymentCategory": {
+      "home": {
+        "title": "Payment Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Payment Category",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Payment Category",
+        "notFound": "No Payment Categories found"
+      },
+      "created": "Một Payment Category mới được tạo với định danh { param }",
+      "updated": "Một Payment Category cập nhật với định danh { param }",
+      "deleted": "Một Payment Category đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Payment Category { id }?"
+      },
+      "detail": {
+        "title": "Payment Category"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "isDefault": "Is Default",
+      "isHidden": "Is Hidden",
+      "ledger": "Ledger",
+      "transaction": "Transaction",
+      "objective": "Objective"
+    }
+  }
+}

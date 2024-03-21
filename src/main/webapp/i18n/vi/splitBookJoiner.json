@@ -1,0 +1,26 @@
+{
+  "improvemyselfApp": {
+    "splitBookJoiner": {
+      "home": {
+        "title": "Split Book Joiners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Split Book Joiner",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Split Book Joiner",
+        "notFound": "No Split Book Joiners found"
+      },
+      "created": "Một Split Book Joiner mới được tạo với định danh { param }",
+      "updated": "Một Split Book Joiner cập nhật với định danh { param }",
+      "deleted": "Một Split Book Joiner đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Split Book Joiner { id }?"
+      },
+      "detail": {
+        "title": "Split Book Joiner"
+      },
+      "id": "ID",
+      "name": "Name",
+      "splitBook": "Split Book",
+      "splitBookDetail": "Split Book Detail"
+    }
+  }
+}

@@ -164,6 +164,9 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-websocket"
     implementation "org.springframework.security:spring-security-messaging"
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    compileOnly "org.projectlombok:lombok:1.18.20"
+    annotationProcessor "org.projectlombok:lombok:1.18.20", "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+    testAnnotationProcessor "org.projectlombok:lombok:1.18.20"
 }
 
 task cleanResources(type: Delete) {

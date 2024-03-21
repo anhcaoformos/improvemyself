@@ -1,0 +1,27 @@
+{
+  "improvemyselfApp": {
+    "goal": {
+      "home": {
+        "title": "Goals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Goal",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Goal",
+        "notFound": "No Goals found"
+      },
+      "created": "Một Goal mới được tạo với định danh { param }",
+      "updated": "Một Goal cập nhật với định danh { param }",
+      "deleted": "Một Goal đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Goal { id }?"
+      },
+      "detail": {
+        "title": "Goal"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "priority": "Priority",
+      "ledger": "Ledger"
+    }
+  }
+}

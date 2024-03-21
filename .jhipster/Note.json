@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20240321160819",
+    "enableAudit": true
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "noteDateFrom",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "noteDateTo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "noteType",
+      "fieldType": "NoteType",
+      "fieldValues": "LIST,EVENT"
+    },
+    {
+      "fieldName": "repeatType",
+      "fieldType": "RepeatType",
+      "fieldValues": "EVERY_DAY,EVERY_WEEK,EVERY_MONTH,EVERY_YEAR,NONE"
+    },
+    {
+      "fieldName": "alertType",
+      "fieldType": "AlertType",
+      "fieldValues": "AT_TIME,BEFORE_FIVE_MINUTES,BEFORE_TEN_MINUTES,BEFORE_FIFTEEN_MINUTES,BEFORE_THIRTY_MINUTES,BEFORE_ONE_HOUR,BEFORE_TWO_HOURS,BEFORE_ONE_DAY,BEFORE_TWO_DAYS,BEFORE_ONE_WEEK,NONE"
+    }
+  ],
+  "name": "Note",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -50,6 +50,27 @@ public class CacheConfiguration {
             createCache(cm, com.produck.domain.User.class.getName());
             createCache(cm, com.produck.domain.Authority.class.getName());
             createCache(cm, com.produck.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.produck.domain.ApplicationUser.class.getName());
+            createCache(cm, com.produck.domain.ApplicationUser.class.getName() + ".splitBooks");
+            createCache(cm, com.produck.domain.ApplicationUser.class.getName() + ".notes");
+            createCache(cm, com.produck.domain.ApplicationUser.class.getName() + ".ledgers");
+            createCache(cm, com.produck.domain.Ledger.class.getName());
+            createCache(cm, com.produck.domain.Ledger.class.getName() + ".goals");
+            createCache(cm, com.produck.domain.Ledger.class.getName() + ".objectives");
+            createCache(cm, com.produck.domain.Ledger.class.getName() + ".transactions");
+            createCache(cm, com.produck.domain.Ledger.class.getName() + ".paymentMethods");
+            createCache(cm, com.produck.domain.Ledger.class.getName() + ".paymentCategories");
+            createCache(cm, com.produck.domain.Transaction.class.getName());
+            createCache(cm, com.produck.domain.Goal.class.getName());
+            createCache(cm, com.produck.domain.PaymentMethod.class.getName());
+            createCache(cm, com.produck.domain.PaymentCategory.class.getName());
+            createCache(cm, com.produck.domain.Objective.class.getName());
+            createCache(cm, com.produck.domain.SplitBook.class.getName());
+            createCache(cm, com.produck.domain.SplitBook.class.getName() + ".splitBookDetails");
+            createCache(cm, com.produck.domain.SplitBook.class.getName() + ".splitBookJoiners");
+            createCache(cm, com.produck.domain.SplitBookDetail.class.getName());
+            createCache(cm, com.produck.domain.SplitBookJoiner.class.getName());
+            createCache(cm, com.produck.domain.Note.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

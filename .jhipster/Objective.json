@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240321160815",
+    "enableAudit": true
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "ObjectiveType",
+      "fieldValues": "FROM_OBJECTIVE,TO_OBJECTIVE,PAY_BOOK,DEFAULT"
+    },
+    {
+      "fieldName": "isHidden",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Objective",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "paymentCategory",
+      "relationshipName": "paymentCategory",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,12 @@
+{
+  "improvemyselfApp": {
+    "PaymentMethodType": {
+      "null": "",
+      "CASH": "CASH",
+      "BANK": "BANK",
+      "WALLET": "WALLET",
+      "STOCK": "STOCK",
+      "OTHER": "OTHER"
+    }
+  }
+}

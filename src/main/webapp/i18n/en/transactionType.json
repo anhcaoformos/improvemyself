@@ -1,0 +1,10 @@
+{
+  "improvemyselfApp": {
+    "TransactionType": {
+      "null": "",
+      "INCOME": "INCOME",
+      "EXPENSE": "EXPENSE",
+      "INTERNAL": "INTERNAL"
+    }
+  }
+}

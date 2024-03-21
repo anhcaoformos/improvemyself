@@ -1,0 +1,32 @@
+{
+  "improvemyselfApp": {
+    "splitBookDetail": {
+      "home": {
+        "title": "Split Book Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Split Book Detail",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Split Book Detail",
+        "notFound": "No Split Book Details found"
+      },
+      "created": "Một Split Book Detail mới được tạo với định danh { param }",
+      "updated": "Một Split Book Detail cập nhật với định danh { param }",
+      "deleted": "Một Split Book Detail đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Split Book Detail { id }?"
+      },
+      "detail": {
+        "title": "Split Book Detail"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "description": "Description",
+      "personName": "Person Name",
+      "transactionDate": "Transaction Date",
+      "transactionType": "Transaction Type",
+      "groupId": "Group Id",
+      "joinerRole": "Joiner Role",
+      "splitBookJoiner": "Split Book Joiner",
+      "splitBook": "Split Book"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "improvemyselfApp": {
+    "objective": {
+      "home": {
+        "title": "Objectives",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Objective",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Objective",
+        "notFound": "No Objectives found"
+      },
+      "created": "Một Objective mới được tạo với định danh { param }",
+      "updated": "Một Objective cập nhật với định danh { param }",
+      "deleted": "Một Objective đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Objective { id }?"
+      },
+      "detail": {
+        "title": "Objective"
+      },
+      "id": "ID",
+      "name": "Name",
+      "type": "Type",
+      "isHidden": "Is Hidden",
+      "paymentCategory": "Payment Category",
+      "ledger": "Ledger",
+      "transaction": "Transaction"
+    }
+  }
+}

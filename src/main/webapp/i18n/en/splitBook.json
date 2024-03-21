@@ -1,0 +1,28 @@
+{
+  "improvemyselfApp": {
+    "splitBook": {
+      "home": {
+        "title": "Split Books",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Split Book",
+        "createOrEditLabel": "Create or edit a Split Book",
+        "notFound": "No Split Books found"
+      },
+      "created": "A new Split Book is created with identifier { param }",
+      "updated": "A Split Book is updated with identifier { param }",
+      "deleted": "A Split Book is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Split Book { id }?"
+      },
+      "detail": {
+        "title": "Split Book"
+      },
+      "id": "ID",
+      "description": "Description",
+      "name": "Name",
+      "splitBookDetail": "Split Book Detail",
+      "splitBookJoiner": "Split Book Joiner",
+      "applicationUser": "Application User"
+    }
+  }
+}

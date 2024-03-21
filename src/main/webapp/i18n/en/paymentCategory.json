@@ -1,0 +1,30 @@
+{
+  "improvemyselfApp": {
+    "paymentCategory": {
+      "home": {
+        "title": "Payment Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Category",
+        "createOrEditLabel": "Create or edit a Payment Category",
+        "notFound": "No Payment Categories found"
+      },
+      "created": "A new Payment Category is created with identifier { param }",
+      "updated": "A Payment Category is updated with identifier { param }",
+      "deleted": "A Payment Category is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Category { id }?"
+      },
+      "detail": {
+        "title": "Payment Category"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "isDefault": "Is Default",
+      "isHidden": "Is Hidden",
+      "ledger": "Ledger",
+      "transaction": "Transaction",
+      "objective": "Objective"
+    }
+  }
+}

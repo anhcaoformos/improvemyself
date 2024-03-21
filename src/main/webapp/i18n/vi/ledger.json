@@ -1,0 +1,31 @@
+{
+  "improvemyselfApp": {
+    "ledger": {
+      "home": {
+        "title": "Ledgers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Ledger",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Ledger",
+        "notFound": "No Ledgers found"
+      },
+      "created": "Một Ledger mới được tạo với định danh { param }",
+      "updated": "Một Ledger cập nhật với định danh { param }",
+      "deleted": "Một Ledger đã xóa với định danh { param }",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Ledger { id }?"
+      },
+      "detail": {
+        "title": "Ledger"
+      },
+      "id": "ID",
+      "name": "Name",
+      "isDefault": "Is Default",
+      "goal": "Goal",
+      "objective": "Objective",
+      "transaction": "Transaction",
+      "paymentMethod": "Payment Method",
+      "paymentCategory": "Payment Category",
+      "applicationUser": "Application User"
+    }
+  }
+}

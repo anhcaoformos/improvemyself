@@ -1,0 +1,52 @@
+{
+  "annotations": {
+    "changelogDate": "20240321160817",
+    "enableAudit": true
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "personName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "TransactionType",
+      "fieldValues": "INCOME,EXPENSE,INTERNAL"
+    },
+    {
+      "fieldName": "groupId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "joinerRole",
+      "fieldType": "JoinerRole",
+      "fieldValues": "JOINER,PAYER"
+    }
+  ],
+  "name": "SplitBookDetail",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "splitBookJoiner",
+      "relationshipName": "splitBookJoiner",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

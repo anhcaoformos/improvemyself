@@ -1,0 +1,9 @@
+export enum ObjectiveType {
+  FROM_OBJECTIVE = 'FROM_OBJECTIVE',
+
+  TO_OBJECTIVE = 'TO_OBJECTIVE',
+
+  PAY_BOOK = 'PAY_BOOK',
+
+  DEFAULT = 'DEFAULT',
+}

@@ -1,0 +1,31 @@
+{
+  "improvemyselfApp": {
+    "ledger": {
+      "home": {
+        "title": "Ledgers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ledger",
+        "createOrEditLabel": "Create or edit a Ledger",
+        "notFound": "No Ledgers found"
+      },
+      "created": "A new Ledger is created with identifier { param }",
+      "updated": "A Ledger is updated with identifier { param }",
+      "deleted": "A Ledger is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Ledger { id }?"
+      },
+      "detail": {
+        "title": "Ledger"
+      },
+      "id": "ID",
+      "name": "Name",
+      "isDefault": "Is Default",
+      "goal": "Goal",
+      "objective": "Objective",
+      "transaction": "Transaction",
+      "paymentMethod": "Payment Method",
+      "paymentCategory": "Payment Category",
+      "applicationUser": "Application User"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "improvemyselfApp": {
+    "splitBookJoiner": {
+      "home": {
+        "title": "Split Book Joiners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Split Book Joiner",
+        "createOrEditLabel": "Create or edit a Split Book Joiner",
+        "notFound": "No Split Book Joiners found"
+      },
+      "created": "A new Split Book Joiner is created with identifier { param }",
+      "updated": "A Split Book Joiner is updated with identifier { param }",
+      "deleted": "A Split Book Joiner is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Split Book Joiner { id }?"
+      },
+      "detail": {
+        "title": "Split Book Joiner"
+      },
+      "id": "ID",
+      "name": "Name",
+      "splitBook": "Split Book",
+      "splitBookDetail": "Split Book Detail"
+    }
+  }
+}

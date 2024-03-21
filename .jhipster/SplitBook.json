@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240321160816",
+    "enableAudit": true
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "name": "SplitBook",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "splitBookDetail",
+      "relationshipName": "splitBookDetail",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "splitBookJoiner",
+      "relationshipName": "splitBookJoiner",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

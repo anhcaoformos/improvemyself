@@ -1,0 +1,11 @@
+id;title;description;note_date_from;note_date_to;note_type;repeat_type;alert_type
+1;maniac;wraparound who glistening;2024-03-21;2024-03-20;LIST;EVERY_WEEK;AT_TIME
+2;fooey enormous radiator;real although;2024-03-21;2024-03-20;EVENT;EVERY_MONTH;BEFORE_ONE_HOUR
+3;merchant;afore security;2024-03-21;2024-03-21;LIST;EVERY_DAY;BEFORE_TEN_MINUTES
+4;lest;certainly;2024-03-21;2024-03-20;LIST;EVERY_YEAR;BEFORE_THIRTY_MINUTES
+5;whenever stallion grizzled;amenity pool;2024-03-21;2024-03-21;EVENT;EVERY_DAY;AT_TIME
+6;past;pessimistic mingle;2024-03-21;2024-03-21;EVENT;EVERY_MONTH;BEFORE_THIRTY_MINUTES
+7;knowledgeable scissors colorfully;besiege pro;2024-03-20;2024-03-21;EVENT;EVERY_WEEK;NONE
+8;lean boohoo yet;birth ick;2024-03-21;2024-03-20;EVENT;NONE;BEFORE_ONE_WEEK
+9;even thatch;enrage aggravating thread;2024-03-21;2024-03-20;LIST;EVERY_YEAR;AT_TIME
+10;yowza impressionable given;partially;2024-03-21;2024-03-21;EVENT;EVERY_MONTH;BEFORE_ONE_DAY
