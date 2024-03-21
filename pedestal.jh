@@ -1,0 +1,127 @@
+entity ApplicationUser {
+}
+
+relationship OneToOne {
+    ApplicationUser{internalUser} to User
+}
+@EnableAudit
+entity Ledger {
+    name String
+    isDefault Boolean
+}
+@EnableAudit
+entity Transaction {
+    amount BigDecimal
+    description String
+    transactionDate LocalDate
+    transactionType TransactionType
+}
+@EnableAudit
+entity Goal {
+    title String
+    description String
+    priority Priority
+}
+enum Priority { HIGH, MEDIUM, LOW}
+
+entity PaymentMethod {
+    code String
+    name String
+    type PaymentMethodType
+    isHidden Boolean
+}
+enum PaymentMethodType {
+    CASH, BANK, WALLET, STOCK, OTHER
+}
+
+@EnableAudit
+entity PaymentCategory {
+    code String
+    name String
+    isDefault Boolean
+    isHidden Boolean
+}
+
+@EnableAudit
+entity Objective {
+    name String
+    type ObjectiveType
+    isHidden Boolean
+}
+
+enum ObjectiveType { FROM_OBJECTIVE, TO_OBJECTIVE, PAY_BOOK, DEFAULT }
+
+@EnableAudit
+entity SplitBook {
+    description String
+    name String
+}
+
+@EnableAudit
+entity SplitBookDetail {
+    amount Double
+    description String
+    personName String
+    transactionDate LocalDate
+    transactionType TransactionType
+    groupId String
+    joinerRole JoinerRole
+}
+
+@EnableAudit
+entity SplitBookJoiner {
+    name String
+}
+
+enum JoinerRole { JOINER, PAYER }
+enum TransactionType { INCOME, EXPENSE, INTERNAL }
+
+@EnableAudit
+entity Note {
+    title String
+    description String
+    noteDateFrom LocalDate
+    noteDateTo LocalDate
+    noteType NoteType
+    repeatType RepeatType
+    alertType AlertType
+}
+enum NoteType { LIST, EVENT }
+enum RepeatType { EVERY_DAY, EVERY_WEEK, EVERY_MONTH, EVERY_YEAR, NONE}
+enum AlertType {
+    AT_TIME,
+    BEFORE_FIVE_MINUTES,
+    BEFORE_TEN_MINUTES,
+    BEFORE_FIFTEEN_MINUTES,
+    BEFORE_THIRTY_MINUTES,
+    BEFORE_ONE_HOUR,
+    BEFORE_TWO_HOURS,
+    BEFORE_ONE_DAY,
+    BEFORE_TWO_DAYS,
+    BEFORE_ONE_WEEK,
+    NONE}
+
+relationship OneToOne {
+    Objective {paymentCategory} to PaymentCategory
+    Transaction {objective} to Objective
+    Transaction {paymentMethod} to PaymentMethod
+    Transaction {targetPaymentMethod} to PaymentMethod
+    Transaction {paymentCategory} to PaymentCategory
+    SplitBookDetail {splitBookJoiner} to SplitBookJoiner
+}
+relationship OneToMany {
+    ApplicationUser {splitBook} to SplitBook
+    ApplicationUser {note} to Note
+    ApplicationUser {ledger} to Ledger
+    Ledger {goal} to Goal
+    Ledger {objective} to Objective
+    Ledger {transaction} to Transaction
+    Ledger {paymentMethod} to PaymentMethod
+    Ledger {paymentCategory} to PaymentCategory
+    SplitBook {splitBookDetail} to SplitBookDetail
+    SplitBook {splitBookJoiner} to SplitBookJoiner
+}
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
