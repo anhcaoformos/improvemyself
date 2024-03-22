@@ -1,11 +1,11 @@
-id;name;type;is_hidden
-1;superficial;PAY_BOOK;false
-2;vaccine;TO_OBJECTIVE;false
-3;knowledgeably;PAY_BOOK;false
-4;pfft;TO_OBJECTIVE;true
-5;toffee spill lest;PAY_BOOK;true
-6;render paraphrase;PAY_BOOK;false
-7;hence reliable towards;FROM_OBJECTIVE;false
-8;equally playfully;TO_OBJECTIVE;true
-9;without oddly;TO_OBJECTIVE;true
-10;while supposing;DEFAULT;false
+id;name;is_hidden;created_by;last_modified_by
+1;Shirt Liaison;false;system;system
+2;navigating;true;system;system
+3;Cambridgeshire;false;system;system
+4;Oklahoma turquoise Stravenue;false;system;system
+5;withdrawal;false;system;system
+6;Cotton seamless;false;system;system
+7;Sports deposit;false;system;system
+8;Chief Glen Sports;true;system;system
+9;PCI Exclusive;false;system;system
+10;Mouse invoice;false;system;system

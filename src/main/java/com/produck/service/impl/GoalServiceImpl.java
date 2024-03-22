@@ -1,11 +1,14 @@
 package com.produck.service.impl;
 
 import com.produck.domain.Goal;
+import com.produck.domain.Ledger;
 import com.produck.repository.GoalRepository;
 import com.produck.service.GoalService;
 import com.produck.service.dto.GoalDTO;
 import com.produck.service.mapper.GoalMapper;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -80,5 +83,32 @@ public class GoalServiceImpl implements GoalService {
     public void delete(Long id) {
         log.debug("Request to delete Goal : {}", id);
         goalRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<GoalDTO> findAllByLedger(Ledger ledger, Pageable pageable) {
+        log.debug("Request to get all Goals By Ledger");
+        return goalRepository.findAllByLedger(ledger, pageable).map(goalMapper::toDto);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<GoalDTO> findAllByLedger(Ledger ledger) {
+        log.debug("Request to get all Goals By Ledger");
+        return goalRepository.findAllByLedger(ledger).stream().map(goalMapper::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<GoalDTO> findOneByLedger(Ledger ledger, Long id) {
+        log.debug("Request to get Goal By Ledger: {}", id);
+        return goalRepository.findOneByLedgerAndId(ledger, id).map(goalMapper::toDto);
+    }
+
+    @Override
+    public void deleteByLedger(Ledger ledger, Long id) {
+        log.debug("Request to delete Goal By Ledger: {}", id);
+        goalRepository.deleteByLedgerAndId(ledger, id);
     }
 }

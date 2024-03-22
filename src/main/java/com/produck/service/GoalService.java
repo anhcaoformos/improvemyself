@@ -1,6 +1,8 @@
 package com.produck.service;
 
+import com.produck.domain.Ledger;
 import com.produck.service.dto.GoalDTO;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,4 +57,12 @@ public interface GoalService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<GoalDTO> findAllByLedger(Ledger ledger, Pageable pageable);
+
+    List<GoalDTO> findAllByLedger(Ledger ledger);
+
+    Optional<GoalDTO> findOneByLedger(Ledger ledger, Long id);
+
+    void deleteByLedger(Ledger ledger, Long id);
 }

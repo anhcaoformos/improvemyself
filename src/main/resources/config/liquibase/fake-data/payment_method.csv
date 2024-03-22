@@ -1,11 +1,11 @@
-id;code;name;type;is_hidden
-1;boohoo frugal;now elderly phew;WALLET;false
-2;gadzooks;hm march;OTHER;true
-3;coal questioner;whoa;STOCK;false
-4;fortunately;if eek;CASH;true
-5;wonderfully;ugh;CASH;false
-6;drapes zowie and;hmph off;OTHER;true
-7;causeway save;propitiate cleverly dab;BANK;true
-8;aw foam;thoughtfully mid than;WALLET;false
-9;down glug jolly;from;OTHER;false
-10;times;portly baby phooey;WALLET;false
+id;code;name;type;is_hidden;created_by;last_modified_by
+1;Garden;Tugrik transmit Industrial;STOCK;false;system;system
+2;back-end deploy Games;Michigan Unbranded;BANK;true;system;system
+3;Applications Facilitator;digital;STOCK;false;system;system
+4;Steel;Central Open-architected Rustic;OTHER;true;system;system
+5;defect;Rapid Shoals Tasty;WALLET;false;system;system
+6;Malta lavender;Garden Kong Soft;CASH;false;system;system
+7;Islands intangible;Personal Ergonomic application;OTHER;false;system;system
+8;multi-state Shirt olive;Jersey;OTHER;false;system;system
+9;Interactions haptic SSL;Djibouti Account;OTHER;true;system;system
+10;Concrete Computers Kids;Generic;CASH;true;system;system

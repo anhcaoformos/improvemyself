@@ -1,6 +1,7 @@
 package com.produck.service.impl;
 
 import com.produck.domain.SplitBook;
+import com.produck.domain.User;
 import com.produck.repository.SplitBookRepository;
 import com.produck.service.SplitBookService;
 import com.produck.service.dto.SplitBookDTO;
@@ -80,5 +81,34 @@ public class SplitBookServiceImpl implements SplitBookService {
     public void delete(Long id) {
         log.debug("Request to delete SplitBook : {}", id);
         splitBookRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<SplitBookDTO> findAllByUser(User user, Pageable pageable) {
+        log.debug("Request to get all SplitBooks By User");
+        return splitBookRepository.findAllByUser(user, pageable).map(splitBookMapper::toDto);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<SplitBookDTO> findOneByUser(User user, Long id) {
+        log.debug("Request to get SplitBook By User: {}", id);
+        return splitBookRepository.findOneByUserAndId(user, id).map(splitBookMapper::toDto);
+    }
+
+    @Override
+    public void deleteByUser(User user, Long id) {
+        log.debug("Request to delete SplitBook By User: {}", id);
+        splitBookRepository.deleteByUserAndId(user, id);
+    }
+
+    @Override
+    public SplitBookDTO save(User user, SplitBookDTO splitBookDTO) {
+        log.debug("Request to save SplitBook : {}", splitBookDTO);
+        SplitBook splitBook = splitBookMapper.toEntity(splitBookDTO);
+        splitBook.setUser(user);
+        splitBook = splitBookRepository.save(splitBook);
+        return splitBookMapper.toDto(splitBook);
     }
 }

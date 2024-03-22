@@ -1,5 +1,6 @@
 package com.produck.service;
 
+import com.produck.domain.User;
 import com.produck.service.dto.SplitBookDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -55,4 +56,12 @@ public interface SplitBookService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<SplitBookDTO> findAllByUser(User user, Pageable pageable);
+
+    Optional<SplitBookDTO> findOneByUser(User user, Long id);
+
+    void deleteByUser(User user, Long id);
+
+    SplitBookDTO save(User user, SplitBookDTO splitBookDTO);
 }

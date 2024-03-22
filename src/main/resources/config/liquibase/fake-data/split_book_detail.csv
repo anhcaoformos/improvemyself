@@ -1,11 +1,11 @@
-id;amount;description;person_name;transaction_date;transaction_type;group_id;joiner_role
-1;32001.77;blah longingly;bob inside;2024-03-20;INTERNAL;disqualify annually ogle;PAYER
-2;8446.49;fake carbonise at;phone accomplished;2024-03-20;INCOME;till who;PAYER
-3;10969.6;crossly;the;2024-03-21;INTERNAL;forenenst intent as;PAYER
-4;25221.03;solidly;before;2024-03-20;INCOME;actress supposing while;JOINER
-5;16925.45;hopelessly misguided;conserve finally;2024-03-21;EXPENSE;comparison who;PAYER
-6;30404.83;gear;alphabetize owlishly convalesce;2024-03-20;INTERNAL;write blah;JOINER
-7;9290.72;around hospitalisation;amid flimsy sans;2024-03-21;INTERNAL;unless;JOINER
-8;11820.07;hm thoughtfully worth;naturally athwart;2024-03-20;EXPENSE;annually loudly next;PAYER
-9;8887.97;afore;including however boo;2024-03-21;INTERNAL;offensive labour timely;PAYER
-10;24190.04;till;monthly zowie;2024-03-21;INCOME;drat;JOINER
+id;amount;description;person_name;transaction_date;transaction_type;created_by;last_modified_by
+1;94403;alarm Borders;Architect Egyptian Refined;2023-09-15;INCOME;system;system
+2;68049;Technician Customer;green Director payment;2023-09-16;EXPENSE;system;system
+3;23271;strategic Rustic;leverage bypassing;2023-09-16;EXPENSE;system;system
+4;53602;Strategist Global generate;knowledge purple quantifying;2023-09-16;INCOME;system;system
+5;91493;Corporate Gloves;lime;2023-09-15;INCOME;system;system
+6;18321;Chicken Road deposit;human-resource port Norwegian;2023-09-15;EXPENSE;system;system
+7;39171;Unbranded;1080p Cotton;2023-09-16;INCOME;system;system
+8;34342;strategy transmit SQL;JSON Rustic Palestinian;2023-09-15;INCOME;system;system
+9;51132;Account Villages;reboot Harbors;2023-09-15;INCOME;system;system
+10;13044;Kids strategize;Principal tertiary Jewelery;2023-09-15;EXPENSE;system;system

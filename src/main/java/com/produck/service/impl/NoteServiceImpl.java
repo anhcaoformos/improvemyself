@@ -1,6 +1,7 @@
 package com.produck.service.impl;
 
 import com.produck.domain.Note;
+import com.produck.domain.User;
 import com.produck.repository.NoteRepository;
 import com.produck.service.NoteService;
 import com.produck.service.dto.NoteDTO;
@@ -80,5 +81,25 @@ public class NoteServiceImpl implements NoteService {
     public void delete(Long id) {
         log.debug("Request to delete Note : {}", id);
         noteRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<NoteDTO> findAllByUser(User user, Pageable pageable) {
+        log.debug("Request to get all Notes By User");
+        return noteRepository.findAllByUser(user, pageable).map(noteMapper::toDto);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<NoteDTO> findOneByUser(User user, Long id) {
+        log.debug("Request to get Note By User: {}", id);
+        return noteRepository.findOneByUserAndId(user, id).map(noteMapper::toDto);
+    }
+
+    @Override
+    public void deleteByUser(User user, Long id) {
+        log.debug("Request to delete Note By User: {}", id);
+        noteRepository.deleteByUserAndId(user, id);
     }
 }

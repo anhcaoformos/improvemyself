@@ -1,21 +1,24 @@
 package com.produck.service.mapper;
 
-import com.produck.domain.ApplicationUser;
 import com.produck.domain.Note;
-import com.produck.service.dto.ApplicationUserDTO;
+import com.produck.domain.User;
 import com.produck.service.dto.NoteDTO;
-import org.mapstruct.*;
+import com.produck.service.dto.UserDTO;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link Note} and its DTO {@link NoteDTO}.
  */
 @Mapper(componentModel = "spring")
 public interface NoteMapper extends EntityMapper<NoteDTO, Note> {
-    @Mapping(target = "applicationUser", source = "applicationUser", qualifiedByName = "applicationUserId")
+    @Mapping(target = "user", source = "user", qualifiedByName = "userId")
     NoteDTO toDto(Note s);
 
-    @Named("applicationUserId")
+    @Named("userId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
-    ApplicationUserDTO toDtoApplicationUserId(ApplicationUser applicationUser);
+    UserDTO toDtoUserId(User user);
 }

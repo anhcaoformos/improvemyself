@@ -1,5 +1,6 @@
 package com.produck.service;
 
+import com.produck.domain.User;
 import com.produck.service.dto.NoteDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -55,4 +56,10 @@ public interface NoteService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<NoteDTO> findAllByUser(User user, Pageable pageable);
+
+    Optional<NoteDTO> findOneByUser(User user, Long id);
+
+    void deleteByUser(User user, Long id);
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity SplitBookDetail.
+    -->
+    <changeSet id="20230916121214-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="split_book_id"
+                                 baseTableName="split_book_detail"
+                                 constraintName="fk_split_book_detail__split_book_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="split_book"/>
+    </changeSet>
+</databaseChangeLog>

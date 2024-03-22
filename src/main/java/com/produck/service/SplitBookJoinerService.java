@@ -42,12 +42,12 @@ public interface SplitBookJoinerService {
      */
     Page<SplitBookJoinerDTO> findAll(Pageable pageable);
 
-    /**
-     * Get all the SplitBookJoinerDTO where SplitBookDetail is {@code null}.
-     *
-     * @return the {@link List} of entities.
-     */
-    List<SplitBookJoinerDTO> findAllWhereSplitBookDetailIsNull();
+    //    /**
+    //     * Get all the SplitBookJoinerDTO where SplitBookDetail is {@code null}.
+    //     *
+    //     * @return the {@link List} of entities.
+    //     */
+    //    List<SplitBookJoinerDTO> findAllWhereSplitBookDetailIsNull();
 
     /**
      * Get the "id" splitBookJoiner.

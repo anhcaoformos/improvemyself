@@ -1,5 +1,6 @@
 package com.produck.service;
 
+import com.produck.domain.SplitBook;
 import com.produck.service.dto.SplitBookDetailDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -55,4 +56,6 @@ public interface SplitBookDetailService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<SplitBookDetailDTO> findAllShared(SplitBook splitBook, Pageable pageable);
 }

@@ -147,10 +147,10 @@ public class SplitBookJoinerResource {
         @org.springdoc.core.annotations.ParameterObject Pageable pageable,
         @RequestParam(name = "filter", required = false) String filter
     ) {
-        if ("splitbookdetail-is-null".equals(filter)) {
-            log.debug("REST request to get all SplitBookJoiners where splitBookDetail is null");
-            return new ResponseEntity<>(splitBookJoinerService.findAllWhereSplitBookDetailIsNull(), HttpStatus.OK);
-        }
+        //        if ("splitbookdetail-is-null".equals(filter)) {
+        //            log.debug("REST request to get all SplitBookJoiners where splitBookDetail is null");
+        //            return new ResponseEntity<>(splitBookJoinerService.findAllWhereSplitBookDetailIsNull(), HttpStatus.OK);
+        //        }
         log.debug("REST request to get a page of SplitBookJoiners");
         Page<SplitBookJoinerDTO> page = splitBookJoinerService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

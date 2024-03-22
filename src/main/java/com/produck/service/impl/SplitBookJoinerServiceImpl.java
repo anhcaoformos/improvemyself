@@ -73,18 +73,18 @@ public class SplitBookJoinerServiceImpl implements SplitBookJoinerService {
         return splitBookJoinerRepository.findAll(pageable).map(splitBookJoinerMapper::toDto);
     }
 
-    /**
-     *  Get all the splitBookJoiners where SplitBookDetail is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true)
-    public List<SplitBookJoinerDTO> findAllWhereSplitBookDetailIsNull() {
-        log.debug("Request to get all splitBookJoiners where SplitBookDetail is null");
-        return StreamSupport.stream(splitBookJoinerRepository.findAll().spliterator(), false)
-            .filter(splitBookJoiner -> splitBookJoiner.getSplitBookDetail() == null)
-            .map(splitBookJoinerMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
+    //    /**
+    //     *  Get all the splitBookJoiners where SplitBookDetail is {@code null}.
+    //     *  @return the list of entities.
+    //     */
+    //    @Transactional(readOnly = true)
+    //    public List<SplitBookJoinerDTO> findAllWhereSplitBookDetailIsNull() {
+    //        log.debug("Request to get all splitBookJoiners where SplitBookDetail is null");
+    //        return StreamSupport.stream(splitBookJoinerRepository.findAll().spliterator(), false)
+    //            .filter(splitBookJoiner -> splitBookJoiner.getSplitBookDetail() == null)
+    //            .map(splitBookJoinerMapper::toDto)
+    //            .collect(Collectors.toCollection(LinkedList::new));
+    //    }
 
     @Override
     @Transactional(readOnly = true)

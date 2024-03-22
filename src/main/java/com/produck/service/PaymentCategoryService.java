@@ -1,5 +1,6 @@
 package com.produck.service;
 
+import com.produck.domain.Ledger;
 import com.produck.service.dto.PaymentCategoryDTO;
 import java.util.List;
 import java.util.Optional;
@@ -43,19 +44,6 @@ public interface PaymentCategoryService {
     Page<PaymentCategoryDTO> findAll(Pageable pageable);
 
     /**
-     * Get all the PaymentCategoryDTO where Transaction is {@code null}.
-     *
-     * @return the {@link List} of entities.
-     */
-    List<PaymentCategoryDTO> findAllWhereTransactionIsNull();
-    /**
-     * Get all the PaymentCategoryDTO where Objective is {@code null}.
-     *
-     * @return the {@link List} of entities.
-     */
-    List<PaymentCategoryDTO> findAllWhereObjectiveIsNull();
-
-    /**
      * Get the "id" paymentCategory.
      *
      * @param id the id of the entity.
@@ -69,4 +57,20 @@ public interface PaymentCategoryService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<PaymentCategoryDTO> findAllByLedger(Ledger ledger, Pageable pageable);
+
+    List<PaymentCategoryDTO> findAllByLedger(Ledger ledger);
+
+    List<PaymentCategoryDTO> findAllShowByLedger(Ledger ledger);
+
+    Optional<PaymentCategoryDTO> findOneByLedger(Ledger ledger, Long id);
+
+    void deleteByLedger(Ledger ledger, Long id);
+
+    void hiddenByLedger(Ledger ledger, Long id);
+
+    void unhiddenByLedger(Ledger ledger, Long id);
+
+    List<PaymentCategoryDTO> findAllExistingByLedger(Ledger ledger);
 }

@@ -1,21 +1,24 @@
 package com.produck.service.mapper;
 
-import com.produck.domain.ApplicationUser;
 import com.produck.domain.SplitBook;
-import com.produck.service.dto.ApplicationUserDTO;
+import com.produck.domain.User;
 import com.produck.service.dto.SplitBookDTO;
-import org.mapstruct.*;
+import com.produck.service.dto.UserDTO;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link SplitBook} and its DTO {@link SplitBookDTO}.
  */
 @Mapper(componentModel = "spring")
 public interface SplitBookMapper extends EntityMapper<SplitBookDTO, SplitBook> {
-    @Mapping(target = "applicationUser", source = "applicationUser", qualifiedByName = "applicationUserId")
+    @Mapping(target = "user", source = "user", qualifiedByName = "userId")
     SplitBookDTO toDto(SplitBook s);
 
-    @Named("applicationUserId")
+    @Named("userId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
-    ApplicationUserDTO toDtoApplicationUserId(ApplicationUser applicationUser);
+    UserDTO toDtoUserId(User user);
 }

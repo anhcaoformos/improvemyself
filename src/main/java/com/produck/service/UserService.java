@@ -315,6 +315,11 @@ public class UserService {
         return authorityRepository.findAll().stream().map(Authority::getName).toList();
     }
 
+    @Transactional(readOnly = true)
+    public Optional<User> getUserBy(Long id) {
+        return userRepository.findOneByIdAndActivatedIsTrue(id);
+    }
+
     private void clearUserCaches(User user) {
         Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE)).evict(user.getLogin());
         if (user.getEmail() != null) {

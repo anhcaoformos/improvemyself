@@ -1,5 +1,6 @@
 package com.produck.service.impl;
 
+import com.produck.domain.SplitBook;
 import com.produck.domain.SplitBookDetail;
 import com.produck.repository.SplitBookDetailRepository;
 import com.produck.service.SplitBookDetailService;
@@ -80,5 +81,12 @@ public class SplitBookDetailServiceImpl implements SplitBookDetailService {
     public void delete(Long id) {
         log.debug("Request to delete SplitBookDetail : {}", id);
         splitBookDetailRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<SplitBookDetailDTO> findAllShared(SplitBook splitBook, Pageable pageable) {
+        log.debug("Request to get all SplitBookDetails Shared");
+        return splitBookDetailRepository.findAllBySplitBook(splitBook, pageable).map(splitBookDetailMapper::toDto);
     }
 }

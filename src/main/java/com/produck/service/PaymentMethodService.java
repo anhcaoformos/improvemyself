@@ -1,5 +1,6 @@
 package com.produck.service;
 
+import com.produck.domain.Ledger;
 import com.produck.service.dto.PaymentMethodDTO;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,8 @@ public interface PaymentMethodService {
      * @return the persisted entity.
      */
     PaymentMethodDTO save(PaymentMethodDTO paymentMethodDTO);
+
+    PaymentMethodDTO saveByLedger(Ledger ledger, PaymentMethodDTO paymentMethodDTO);
 
     /**
      * Updates a paymentMethod.
@@ -43,13 +46,6 @@ public interface PaymentMethodService {
     Page<PaymentMethodDTO> findAll(Pageable pageable);
 
     /**
-     * Get all the PaymentMethodDTO where Transaction is {@code null}.
-     *
-     * @return the {@link List} of entities.
-     */
-    List<PaymentMethodDTO> findAllWhereTransactionIsNull();
-
-    /**
      * Get the "id" paymentMethod.
      *
      * @param id the id of the entity.
@@ -63,4 +59,14 @@ public interface PaymentMethodService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<PaymentMethodDTO> findAllByLedger(Ledger ledger, Pageable pageable);
+
+    List<PaymentMethodDTO> findAllByLedger(Ledger ledger);
+
+    Optional<PaymentMethodDTO> findOneByLedger(Ledger ledger, Long id);
+
+    void deleteByLedger(Ledger ledger, Long id);
+
+    List<PaymentMethodDTO> findAllExistingByLedger(Ledger selectedLedger);
 }

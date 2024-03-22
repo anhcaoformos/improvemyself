@@ -8,10 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.produck.IntegrationTest;
-import com.produck.domain.ApplicationUser;
-import com.produck.repository.ApplicationUserRepository;
-import com.produck.service.dto.ApplicationUserDTO;
-import com.produck.service.mapper.ApplicationUserMapper;
 import jakarta.persistence.EntityManager;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;

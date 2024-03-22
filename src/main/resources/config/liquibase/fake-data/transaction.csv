@@ -1,11 +1,11 @@
-id;amount;description;transaction_date;transaction_type
-1;28519.87;whisk oh ouch;2024-03-20;INTERNAL
-2;3490.17;including;2024-03-21;EXPENSE
-3;28755.72;faith rip dupe;2024-03-20;INCOME
-4;30695.89;symptomize hard-to-find;2024-03-21;INTERNAL
-5;5779.08;goal before;2024-03-21;INCOME
-6;15039.93;angrily curate kaleidoscopic;2024-03-20;EXPENSE
-7;6444.29;ounce ew;2024-03-21;INCOME
-8;12886.45;horrify kit;2024-03-21;INTERNAL
-9;637.71;notwithstanding throne crowded;2024-03-20;EXPENSE
-10;9558.28;waltz austere ha;2024-03-21;INCOME
+id;amount;description;source;target;transaction_date;transaction_type;created_by;last_modified_by
+1;2849;B2C Gorgeous;Chips Wyoming;B2B;2023-09-23;EXPENSE;system;system
+2;51662;orchestrate Estates invoice;Garden scale;Innovative SQL Checking;2023-09-23;INCOME;system;system
+3;3216;Caledonia connecting Executive;Cambridgeshire;e-tailers Technician navigating;2023-09-23;INCOME;system;system
+4;46193;Industrial;grey end-to-end optimize;Luxembourg;2023-09-24;EXPENSE;system;system
+5;88371;programming Mariana Ergonomic;port enable;Island optical olive;2023-09-23;INCOME;system;system
+6;58305;monitor;capacitor compressing;maximize connect;2023-09-24;EXPENSE;system;system
+7;90732;Montana drive SSL;mesh;e-business Gardens Planner;2023-09-23;EXPENSE;system;system
+8;26362;metrics Lek;silver deposit Account;Berkshire;2023-09-23;EXPENSE;system;system
+9;82326;deposit Ameliorated Belgium;Electronics Pakistan;eyeballs Health lime;2023-09-23;INCOME;system;system
+10;43098;Operations;withdrawal Automotive;Islands;2023-09-23;INCOME;system;system

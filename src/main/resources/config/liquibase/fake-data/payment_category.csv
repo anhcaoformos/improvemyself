@@ -1,11 +1,18 @@
-id;code;name;is_default;is_hidden
-1;attack so utilized;adored;false;false
-2;trumpet;buckle rain;false;false
-3;apple;seldom cover;false;true
-4;yearningly forceful yet;bah thread;false;false
-5;generously brr warmhearted;by to pfft;false;false
-6;tightly distorted blah;fooey ferociously;false;true
-7;aw furiously why;lest suspiciously;false;false
-8;jab aboard so;wok mortally;false;false
-9;fatally parable glaring;talent toward beyond;true;true
-10;hence;incidentally shift ramie;true;false
+id;code;name;is_default;created_by;last_modified_by
+1;SHOP;Shop;true;system;system
+2;TRANSPORT;Transport;true;system;system
+3;INSURANCE;Insurance;true;system;system
+4;FOOD;Food;true;system;system
+5;LOAN;Loan;true;system;system
+6;BORROW;Borrow;true;system;system
+7;INVESTMENT;Investment;true;system;system
+8;RENT;Rent;true;system;system
+9;INSTALLMENT;Installment;true;system;system
+10;SALARY;Salary;true;system;system
+11;SELF;Self;true;system;system
+12;PAID;Paid;true;system;system
+13;RECEIVED;Received;true;system;system
+14;UN_SAVING;Un Saving;true;system;system
+15;SAVING;Saving;true;system;system
+16;REVENUE_SAVING;Revenue Saving;true;system;system
+17;OTHER;Other;true;system;system

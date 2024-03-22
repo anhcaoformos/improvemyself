@@ -6,12 +6,18 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Transaction.
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
 @Entity
 @Table(name = "transaction")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -55,158 +61,8 @@ public class Transaction implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
-        value = { "goals", "objectives", "transactions", "paymentMethods", "paymentCategories", "applicationUser" },
+        value = { "goals", "objectives", "transactions", "paymentMethods", "paymentCategories", "user" },
         allowSetters = true
     )
     private Ledger ledger;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public Transaction id(Long id) {
-        this.setId(id);
-        return this;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public BigDecimal getAmount() {
-        return this.amount;
-    }
-
-    public Transaction amount(BigDecimal amount) {
-        this.setAmount(amount);
-        return this;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public Transaction description(String description) {
-        this.setDescription(description);
-        return this;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDate getTransactionDate() {
-        return this.transactionDate;
-    }
-
-    public Transaction transactionDate(LocalDate transactionDate) {
-        this.setTransactionDate(transactionDate);
-        return this;
-    }
-
-    public void setTransactionDate(LocalDate transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-
-    public TransactionType getTransactionType() {
-        return this.transactionType;
-    }
-
-    public Transaction transactionType(TransactionType transactionType) {
-        this.setTransactionType(transactionType);
-        return this;
-    }
-
-    public void setTransactionType(TransactionType transactionType) {
-        this.transactionType = transactionType;
-    }
-
-    public Objective getObjective() {
-        return this.objective;
-    }
-
-    public void setObjective(Objective objective) {
-        this.objective = objective;
-    }
-
-    public Transaction objective(Objective objective) {
-        this.setObjective(objective);
-        return this;
-    }
-
-    public PaymentMethod getPaymentMethod() {
-        return this.paymentMethod;
-    }
-
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public Transaction paymentMethod(PaymentMethod paymentMethod) {
-        this.setPaymentMethod(paymentMethod);
-        return this;
-    }
-
-    public PaymentCategory getPaymentCategory() {
-        return this.paymentCategory;
-    }
-
-    public void setPaymentCategory(PaymentCategory paymentCategory) {
-        this.paymentCategory = paymentCategory;
-    }
-
-    public Transaction paymentCategory(PaymentCategory paymentCategory) {
-        this.setPaymentCategory(paymentCategory);
-        return this;
-    }
-
-    public Ledger getLedger() {
-        return this.ledger;
-    }
-
-    public void setLedger(Ledger ledger) {
-        this.ledger = ledger;
-    }
-
-    public Transaction ledger(Ledger ledger) {
-        this.setLedger(ledger);
-        return this;
-    }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Transaction)) {
-            return false;
-        }
-        return getId() != null && getId().equals(((Transaction) o).getId());
-    }
-
-    @Override
-    public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-        return getClass().hashCode();
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Transaction{" +
-            "id=" + getId() +
-            ", amount=" + getAmount() +
-            ", description='" + getDescription() + "'" +
-            ", transactionDate='" + getTransactionDate() + "'" +
-            ", transactionType='" + getTransactionType() + "'" +
-            "}";
-    }
 }

@@ -50,10 +50,9 @@ public class CacheConfiguration {
             createCache(cm, com.produck.domain.User.class.getName());
             createCache(cm, com.produck.domain.Authority.class.getName());
             createCache(cm, com.produck.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.produck.domain.ApplicationUser.class.getName());
-            createCache(cm, com.produck.domain.ApplicationUser.class.getName() + ".splitBooks");
-            createCache(cm, com.produck.domain.ApplicationUser.class.getName() + ".notes");
-            createCache(cm, com.produck.domain.ApplicationUser.class.getName() + ".ledgers");
+            createCache(cm, com.produck.domain.User.class.getName() + ".splitBooks");
+            createCache(cm, com.produck.domain.User.class.getName() + ".notes");
+            createCache(cm, com.produck.domain.User.class.getName() + ".ledgers");
             createCache(cm, com.produck.domain.Ledger.class.getName());
             createCache(cm, com.produck.domain.Ledger.class.getName() + ".goals");
             createCache(cm, com.produck.domain.Ledger.class.getName() + ".objectives");

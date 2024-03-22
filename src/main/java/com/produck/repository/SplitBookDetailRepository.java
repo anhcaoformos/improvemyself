@@ -1,6 +1,9 @@
 package com.produck.repository;
 
+import com.produck.domain.SplitBook;
 import com.produck.domain.SplitBookDetail;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +12,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface SplitBookDetailRepository extends JpaRepository<SplitBookDetail, Long> {}
+public interface SplitBookDetailRepository extends JpaRepository<SplitBookDetail, Long> {
+    Page<SplitBookDetail> findAllBySplitBook(SplitBook splitBook, Pageable pageable);
+}
