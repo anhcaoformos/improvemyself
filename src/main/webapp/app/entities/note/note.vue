@@ -55,9 +55,9 @@
               <span v-text="t$('improvemyselfApp.note.alertType')"></span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'alertType'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('applicationUser.id')">
-              <span v-text="t$('improvemyselfApp.note.applicationUser')"></span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'applicationUser.id'"></jhi-sort-indicator>
+            <th scope="row" v-on:click="changeOrder('user.id')">
+              <span v-text="t$('improvemyselfApp.note.user')"></span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'user.id'"></jhi-sort-indicator>
             </th>
             <th scope="row"></th>
           </tr>
@@ -75,10 +75,8 @@
             <td v-text="t$('improvemyselfApp.RepeatType.' + note.repeatType)"></td>
             <td v-text="t$('improvemyselfApp.AlertType.' + note.alertType)"></td>
             <td>
-              <div v-if="note.applicationUser">
-                <router-link :to="{ name: 'ApplicationUserView', params: { applicationUserId: note.applicationUser.id } }">{{
-                  note.applicationUser.id
-                }}</router-link>
+              <div v-if="note.user">
+                <router-link :to="{ name: 'UserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">

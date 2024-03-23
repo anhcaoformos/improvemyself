@@ -8,7 +8,7 @@ import SplitBookUpdate from './split-book-update.vue';
 import SplitBookService from './split-book.service';
 import AlertService from '@/shared/alert/alert.service';
 
-import ApplicationUserService from '@/entities/application-user/application-user.service';
+import UserService from '@/entities/user/user.service';
 
 type SplitBookUpdateComponentType = InstanceType<typeof SplitBookUpdate>;
 
@@ -53,8 +53,8 @@ describe('Component Tests', () => {
         provide: {
           alertService,
           splitBookService: () => splitBookServiceStub,
-          applicationUserService: () =>
-            sinon.createStubInstance<ApplicationUserService>(ApplicationUserService, {
+          userService: () =>
+            sinon.createStubInstance<UserService>(UserService, {
               retrieve: sinon.stub().resolves({}),
             } as any),
         },

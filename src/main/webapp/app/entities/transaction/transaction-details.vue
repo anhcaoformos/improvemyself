@@ -51,6 +51,17 @@
             </div>
           </dd>
           <dt>
+            <span v-text="t$('improvemyselfApp.transaction.targetPaymentMethod')"></span>
+          </dt>
+          <dd>
+            <div v-if="transaction.targetPaymentMethod">
+              <router-link
+                :to="{ name: 'TargetPaymentMethodView', params: { targetPaymentMethodId: transaction.targetPaymentMethod.id } }"
+                >{{ transaction.targetPaymentMethod.id }}</router-link
+              >
+            </div>
+          </dd>
+          <dt>
             <span v-text="t$('improvemyselfApp.transaction.paymentCategory')"></span>
           </dt>
           <dd>

@@ -12,6 +12,7 @@ export interface ITransaction {
   transactionType?: keyof typeof TransactionType | null;
   objective?: IObjective | null;
   paymentMethod?: IPaymentMethod | null;
+  targetPaymentMethod?: IPaymentMethod | null;
   paymentCategory?: IPaymentCategory | null;
   ledger?: ILedger | null;
 }

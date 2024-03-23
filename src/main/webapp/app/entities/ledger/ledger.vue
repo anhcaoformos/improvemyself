@@ -40,9 +40,9 @@
               <span v-text="t$('improvemyselfApp.ledger.isDefault')"></span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'isDefault'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('applicationUser.id')">
-              <span v-text="t$('improvemyselfApp.ledger.applicationUser')"></span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'applicationUser.id'"></jhi-sort-indicator>
+            <th scope="row" v-on:click="changeOrder('user.id')">
+              <span v-text="t$('improvemyselfApp.ledger.user')"></span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'user.id'"></jhi-sort-indicator>
             </th>
             <th scope="row"></th>
           </tr>
@@ -55,10 +55,8 @@
             <td>{{ ledger.name }}</td>
             <td>{{ ledger.isDefault }}</td>
             <td>
-              <div v-if="ledger.applicationUser">
-                <router-link :to="{ name: 'ApplicationUserView', params: { applicationUserId: ledger.applicationUser.id } }">{{
-                  ledger.applicationUser.id
-                }}</router-link>
+              <div v-if="ledger.user">
+                <router-link :to="{ name: 'UserView', params: { userId: ledger.user.id } }">{{ ledger.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">

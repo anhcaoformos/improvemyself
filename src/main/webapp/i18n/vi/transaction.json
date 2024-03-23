@@ -24,6 +24,7 @@
       "transactionType": "Transaction Type",
       "objective": "Objective",
       "paymentMethod": "Payment Method",
+      "targetPaymentMethod": "Target Payment Method",
       "paymentCategory": "Payment Category",
       "ledger": "Ledger"
     }

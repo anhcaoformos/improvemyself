@@ -1,9 +1,5 @@
 <template>
   <div>
-    <b-dropdown-item to="/application-user">
-      <font-awesome-icon icon="asterisk" />
-      <span v-text="t$('global.menu.entities.applicationUser')"></span>
-    </b-dropdown-item>
     <b-dropdown-item to="/ledger">
       <font-awesome-icon icon="asterisk" />
       <span v-text="t$('global.menu.entities.ledger')"></span>

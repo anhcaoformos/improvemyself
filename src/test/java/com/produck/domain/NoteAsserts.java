@@ -65,6 +65,6 @@ public class NoteAsserts {
     public static void assertNoteUpdatableRelationshipsEquals(Note expected, Note actual) {
         assertThat(expected)
             .as("Verify Note relationships")
-            .satisfies(e -> assertThat(e.getApplicationUser()).as("check applicationUser").isEqualTo(actual.getApplicationUser()));
+            .satisfies(e -> assertThat(e.getUser()).as("check user").isEqualTo(actual.getUser()));
     }
 }

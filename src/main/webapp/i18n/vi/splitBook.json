@@ -22,7 +22,7 @@
       "name": "Name",
       "splitBookDetail": "Split Book Detail",
       "splitBookJoiner": "Split Book Joiner",
-      "applicationUser": "Application User"
+      "user": "User"
     }
   }
 }

@@ -7,7 +7,12 @@
         Added the constraints for entity SplitBookDetail.
     -->
     <changeSet id="20230916121214-2" author="jhipster">
-
+        <addForeignKeyConstraint baseColumnNames="split_book_joiner_id"
+                                 baseTableName="split_book_detail"
+                                 constraintName="fk_split_book_detail__split_book_joiner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="split_book_joiner"
+        />
         <addForeignKeyConstraint baseColumnNames="split_book_id"
                                  baseTableName="split_book_detail"
                                  constraintName="fk_split_book_detail__split_book_id"

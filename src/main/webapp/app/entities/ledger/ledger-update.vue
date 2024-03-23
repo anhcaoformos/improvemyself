@@ -37,25 +37,15 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-control-label" v-text="t$('improvemyselfApp.ledger.applicationUser')" for="ledger-applicationUser"></label>
-            <select
-              class="form-control"
-              id="ledger-applicationUser"
-              data-cy="applicationUser"
-              name="applicationUser"
-              v-model="ledger.applicationUser"
-            >
+            <label class="form-control-label" v-text="t$('improvemyselfApp.ledger.user')" for="ledger-user"></label>
+            <select class="form-control" id="ledger-user" data-cy="user" name="user" v-model="ledger.user">
               <option v-bind:value="null"></option>
               <option
-                v-bind:value="
-                  ledger.applicationUser && applicationUserOption.id === ledger.applicationUser.id
-                    ? ledger.applicationUser
-                    : applicationUserOption
-                "
-                v-for="applicationUserOption in applicationUsers"
-                :key="applicationUserOption.id"
+                v-bind:value="ledger.user && userOption.id === ledger.user.id ? ledger.user : userOption"
+                v-for="userOption in users"
+                :key="userOption.id"
               >
-                {{ applicationUserOption.id }}
+                {{ userOption.id }}
               </option>
             </select>
           </div>

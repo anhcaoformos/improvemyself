@@ -1,6 +1,6 @@
 package com.produck.web.rest;
 
-import static com.produck.domain.ApplicationUserAsserts.*;
+import static com.produck.domain.UserAsserts.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -21,14 +21,14 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Integration tests for the {@link ApplicationUserResource} REST controller.
+ * Integration tests for the {@link UserResource} REST controller.
  */
 @IntegrationTest
 @AutoConfigureMockMvc
 @WithMockUser
-class ApplicationUserResourceIT {
+class UserResourceIT {
 
-    private static final String ENTITY_API_URL = "/api/application-users";
+    private static final String ENTITY_API_URL = "/api/users";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
     private static Random random = new Random();
@@ -38,18 +38,18 @@ class ApplicationUserResourceIT {
     private ObjectMapper om;
 
     @Autowired
-    private ApplicationUserRepository applicationUserRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    private ApplicationUserMapper applicationUserMapper;
+    private UserMapper userMapper;
 
     @Autowired
     private EntityManager em;
 
     @Autowired
-    private MockMvc restApplicationUserMockMvc;
+    private MockMvc restUserMockMvc;
 
-    private ApplicationUser applicationUser;
+    private User user;
 
     /**
      * Create an entity for this test.
@@ -57,9 +57,9 @@ class ApplicationUserResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static ApplicationUser createEntity(EntityManager em) {
-        ApplicationUser applicationUser = new ApplicationUser();
-        return applicationUser;
+    public static User createEntity(EntityManager em) {
+        User user = new User();
+        return user;
     }
 
     /**
@@ -68,102 +68,102 @@ class ApplicationUserResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static ApplicationUser createUpdatedEntity(EntityManager em) {
-        ApplicationUser applicationUser = new ApplicationUser();
-        return applicationUser;
+    public static User createUpdatedEntity(EntityManager em) {
+        User user = new User();
+        return user;
     }
 
     @BeforeEach
     public void initTest() {
-        applicationUser = createEntity(em);
+        user = createEntity(em);
     }
 
     @Test
     @Transactional
-    void createApplicationUser() throws Exception {
+    void createUser() throws Exception {
         long databaseSizeBeforeCreate = getRepositoryCount();
-        // Create the ApplicationUser
-        ApplicationUserDTO applicationUserDTO = applicationUserMapper.toDto(applicationUser);
-        var returnedApplicationUserDTO = om.readValue(
-            restApplicationUserMockMvc
-                .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(applicationUserDTO)))
+        // Create the User
+        UserDTO userDTO = userMapper.toDto(user);
+        var returnedUserDTO = om.readValue(
+            restUserMockMvc
+                .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(userDTO)))
                 .andExpect(status().isCreated())
                 .andReturn()
                 .getResponse()
                 .getContentAsString(),
-            ApplicationUserDTO.class
+            UserDTO.class
         );
 
-        // Validate the ApplicationUser in the database
+        // Validate the User in the database
         assertIncrementedRepositoryCount(databaseSizeBeforeCreate);
-        var returnedApplicationUser = applicationUserMapper.toEntity(returnedApplicationUserDTO);
-        assertApplicationUserUpdatableFieldsEquals(returnedApplicationUser, getPersistedApplicationUser(returnedApplicationUser));
+        var returnedUser = userMapper.toEntity(returnedUserDTO);
+        assertUserUpdatableFieldsEquals(returnedUser, getPersistedUser(returnedUser));
     }
 
     @Test
     @Transactional
-    void createApplicationUserWithExistingId() throws Exception {
-        // Create the ApplicationUser with an existing ID
-        applicationUser.setId(1L);
-        ApplicationUserDTO applicationUserDTO = applicationUserMapper.toDto(applicationUser);
+    void createUserWithExistingId() throws Exception {
+        // Create the User with an existing ID
+        user.setId(1L);
+        UserDTO userDTO = userMapper.toDto(user);
 
         long databaseSizeBeforeCreate = getRepositoryCount();
 
         // An entity with an existing ID cannot be created, so this API call must fail
-        restApplicationUserMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(applicationUserDTO)))
+        restUserMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(userDTO)))
             .andExpect(status().isBadRequest());
 
-        // Validate the ApplicationUser in the database
+        // Validate the User in the database
         assertSameRepositoryCount(databaseSizeBeforeCreate);
     }
 
     @Test
     @Transactional
-    void getAllApplicationUsers() throws Exception {
+    void getAllUsers() throws Exception {
         // Initialize the database
-        applicationUserRepository.saveAndFlush(applicationUser);
+        userRepository.saveAndFlush(user);
 
-        // Get all the applicationUserList
-        restApplicationUserMockMvc
+        // Get all the userList
+        restUserMockMvc
             .perform(get(ENTITY_API_URL + "?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(applicationUser.getId().intValue())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(user.getId().intValue())));
     }
 
     @Test
     @Transactional
-    void getApplicationUser() throws Exception {
+    void getUser() throws Exception {
         // Initialize the database
-        applicationUserRepository.saveAndFlush(applicationUser);
+        userRepository.saveAndFlush(user);
 
-        // Get the applicationUser
-        restApplicationUserMockMvc
-            .perform(get(ENTITY_API_URL_ID, applicationUser.getId()))
+        // Get the user
+        restUserMockMvc
+            .perform(get(ENTITY_API_URL_ID, user.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.id").value(applicationUser.getId().intValue()));
+            .andExpect(jsonPath("$.id").value(user.getId().intValue()));
     }
 
     @Test
     @Transactional
-    void getNonExistingApplicationUser() throws Exception {
-        // Get the applicationUser
-        restApplicationUserMockMvc.perform(get(ENTITY_API_URL_ID, Long.MAX_VALUE)).andExpect(status().isNotFound());
+    void getNonExistingUser() throws Exception {
+        // Get the user
+        restUserMockMvc.perform(get(ENTITY_API_URL_ID, Long.MAX_VALUE)).andExpect(status().isNotFound());
     }
 
     @Test
     @Transactional
-    void deleteApplicationUser() throws Exception {
+    void deleteUser() throws Exception {
         // Initialize the database
-        applicationUserRepository.saveAndFlush(applicationUser);
+        userRepository.saveAndFlush(user);
 
         long databaseSizeBeforeDelete = getRepositoryCount();
 
-        // Delete the applicationUser
-        restApplicationUserMockMvc
-            .perform(delete(ENTITY_API_URL_ID, applicationUser.getId()).accept(MediaType.APPLICATION_JSON))
+        // Delete the user
+        restUserMockMvc
+            .perform(delete(ENTITY_API_URL_ID, user.getId()).accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item
@@ -171,7 +171,7 @@ class ApplicationUserResourceIT {
     }
 
     protected long getRepositoryCount() {
-        return applicationUserRepository.count();
+        return userRepository.count();
     }
 
     protected void assertIncrementedRepositoryCount(long countBefore) {
@@ -186,15 +186,15 @@ class ApplicationUserResourceIT {
         assertThat(countBefore).isEqualTo(getRepositoryCount());
     }
 
-    protected ApplicationUser getPersistedApplicationUser(ApplicationUser applicationUser) {
-        return applicationUserRepository.findById(applicationUser.getId()).orElseThrow();
+    protected User getPersistedUser(User user) {
+        return userRepository.findById(user.getId()).orElseThrow();
     }
 
-    protected void assertPersistedApplicationUserToMatchAllProperties(ApplicationUser expectedApplicationUser) {
-        assertApplicationUserAllPropertiesEquals(expectedApplicationUser, getPersistedApplicationUser(expectedApplicationUser));
+    protected void assertPersistedUserToMatchAllProperties(User expectedUser) {
+        assertUserAllPropertiesEquals(expectedUser, getPersistedUser(expectedUser));
     }
 
-    protected void assertPersistedApplicationUserToMatchUpdatableProperties(ApplicationUser expectedApplicationUser) {
-        assertApplicationUserAllUpdatablePropertiesEquals(expectedApplicationUser, getPersistedApplicationUser(expectedApplicationUser));
+    protected void assertPersistedUserToMatchUpdatableProperties(User expectedUser) {
+        assertUserAllUpdatablePropertiesEquals(expectedUser, getPersistedUser(expectedUser));
     }
 }

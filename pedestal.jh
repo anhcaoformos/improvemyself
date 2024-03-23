@@ -1,8 +1,8 @@
-entity ApplicationUser {
+entity User {
 }
 
 relationship OneToOne {
-    ApplicationUser{internalUser} to User
+    User{internalUser} to User
 }
 @EnableAudit
 entity Ledger {
@@ -110,9 +110,9 @@ relationship OneToOne {
     SplitBookDetail {splitBookJoiner} to SplitBookJoiner
 }
 relationship OneToMany {
-    ApplicationUser {splitBook} to SplitBook
-    ApplicationUser {note} to Note
-    ApplicationUser {ledger} to Ledger
+    User {splitBook} to SplitBook
+    User {note} to Note
+    User {ledger} to Ledger
     Ledger {goal} to Goal
     Ledger {objective} to Objective
     Ledger {transaction} to Transaction

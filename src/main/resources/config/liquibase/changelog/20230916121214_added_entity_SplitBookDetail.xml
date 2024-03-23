@@ -32,6 +32,15 @@
             <column name="split_book_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="group_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="joiner_role" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="split_book_joiner_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
             <column name="created_by" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -64,6 +73,7 @@
             <column name="person_name" type="string"/>
             <column name="transaction_date" type="date"/>
             <column name="transaction_type" type="string"/>
+            <column name="split_book_joiner_id" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

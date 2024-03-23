@@ -7,8 +7,8 @@ import SplitBookService from './split-book.service';
 import { useValidation } from '@/shared/composables';
 import { useAlertService } from '@/shared/alert/alert.service';
 
-import ApplicationUserService from '@/entities/application-user/application-user.service';
-import { type IApplicationUser } from '@/shared/model/application-user.model';
+import UserService from '@/entities/user/user.service';
+import { type IUser } from '@/shared/model/user.model';
 import { type ISplitBook, SplitBook } from '@/shared/model/split-book.model';
 
 export default defineComponent({
@@ -20,9 +20,9 @@ export default defineComponent({
 
     const splitBook: Ref<ISplitBook> = ref(new SplitBook());
 
-    const applicationUserService = inject('applicationUserService', () => new ApplicationUserService());
+    const userService = inject('userService', () => new UserService());
 
-    const applicationUsers: Ref<IApplicationUser[]> = ref([]);
+    const users: Ref<IUser[]> = ref([]);
     const isSaving = ref(false);
     const currentLanguage = inject('currentLanguage', () => computed(() => navigator.language ?? 'en'), true);
 
@@ -45,10 +45,10 @@ export default defineComponent({
     }
 
     const initRelationships = () => {
-      applicationUserService()
+      userService()
         .retrieve()
         .then(res => {
-          applicationUsers.value = res.data;
+          users.value = res.data;
         });
     };
 
@@ -59,7 +59,7 @@ export default defineComponent({
     const validationRules = {
       description: {},
       name: {},
-      applicationUser: {},
+      user: {},
     };
     const v$ = useVuelidate(validationRules, splitBook as any);
     v$.value.$validate();
@@ -71,7 +71,7 @@ export default defineComponent({
       previousState,
       isSaving,
       currentLanguage,
-      applicationUsers,
+      users,
       v$,
       t$,
     };

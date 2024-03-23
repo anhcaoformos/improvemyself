@@ -1,11 +1,11 @@
-id;amount;description;person_name;transaction_date;transaction_type;created_by;last_modified_by
-1;94403;alarm Borders;Architect Egyptian Refined;2023-09-15;INCOME;system;system
-2;68049;Technician Customer;green Director payment;2023-09-16;EXPENSE;system;system
-3;23271;strategic Rustic;leverage bypassing;2023-09-16;EXPENSE;system;system
-4;53602;Strategist Global generate;knowledge purple quantifying;2023-09-16;INCOME;system;system
-5;91493;Corporate Gloves;lime;2023-09-15;INCOME;system;system
-6;18321;Chicken Road deposit;human-resource port Norwegian;2023-09-15;EXPENSE;system;system
-7;39171;Unbranded;1080p Cotton;2023-09-16;INCOME;system;system
-8;34342;strategy transmit SQL;JSON Rustic Palestinian;2023-09-15;INCOME;system;system
-9;51132;Account Villages;reboot Harbors;2023-09-15;INCOME;system;system
-10;13044;Kids strategize;Principal tertiary Jewelery;2023-09-15;EXPENSE;system;system
+id;amount;description;person_name;transaction_date;transaction_type;split_book_joiner_id;created_by;last_modified_by
+1;94403;alarm Borders;Architect Egyptian Refined;2023-09-15;INCOME;1;system;system
+2;68049;Technician Customer;green Director payment;2023-09-16;EXPENSE;2;system;system
+3;23271;strategic Rustic;leverage bypassing;2023-09-16;EXPENSE;4;system;system
+4;53602;Strategist Global generate;knowledge purple quantifying;2023-09-16;INCOME;5;system;system
+5;91493;Corporate Gloves;lime;2023-09-15;INCOME;6;system;system
+6;18321;Chicken Road deposit;human-resource port Norwegian;2023-09-15;EXPENSE;7;system;system
+7;39171;Unbranded;1080p Cotton;2023-09-16;INCOME;8;system;system
+8;34342;strategy transmit SQL;JSON Rustic Palestinian;2023-09-15;INCOME;9;system;system
+9;51132;Account Villages;reboot Harbors;2023-09-15;INCOME;10;system;system
+10;13044;Kids strategize;Principal tertiary Jewelery;2023-09-15;EXPENSE;3;system;system

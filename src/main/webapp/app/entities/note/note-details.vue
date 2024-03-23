@@ -49,13 +49,11 @@
             <span v-text="t$('improvemyselfApp.AlertType.' + note.alertType)"></span>
           </dd>
           <dt>
-            <span v-text="t$('improvemyselfApp.note.applicationUser')"></span>
+            <span v-text="t$('improvemyselfApp.note.user')"></span>
           </dt>
           <dd>
-            <div v-if="note.applicationUser">
-              <router-link :to="{ name: 'ApplicationUserView', params: { applicationUserId: note.applicationUser.id } }">{{
-                note.applicationUser.id
-              }}</router-link>
+            <div v-if="note.user">
+              <router-link :to="{ name: 'UserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
             </div>
           </dd>
         </dl>

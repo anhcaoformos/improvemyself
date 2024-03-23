@@ -33,7 +33,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.produck.domain.SplitBookDetail}.
  */
 @RestController
-@RequestMapping("/api/split-book-details")
+@RequestMapping("/api")
 public class SplitBookDetailResource {
 
     private final Logger log = LoggerFactory.getLogger(SplitBookDetailResource.class);

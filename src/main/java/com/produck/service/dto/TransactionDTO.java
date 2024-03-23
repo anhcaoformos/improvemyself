@@ -35,6 +35,8 @@ public class TransactionDTO extends AbstractBaseDTO implements Serializable {
 
     private PaymentMethodDTO paymentMethod;
 
+    private PaymentMethodDTO targetPaymentMethod;
+
     private PaymentCategoryDTO paymentCategory;
 
     private LedgerDTO ledger;

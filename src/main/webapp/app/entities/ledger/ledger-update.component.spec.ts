@@ -8,7 +8,7 @@ import LedgerUpdate from './ledger-update.vue';
 import LedgerService from './ledger.service';
 import AlertService from '@/shared/alert/alert.service';
 
-import ApplicationUserService from '@/entities/application-user/application-user.service';
+import UserService from '@/entities/user/user.service';
 
 type LedgerUpdateComponentType = InstanceType<typeof LedgerUpdate>;
 
@@ -53,8 +53,8 @@ describe('Component Tests', () => {
         provide: {
           alertService,
           ledgerService: () => ledgerServiceStub,
-          applicationUserService: () =>
-            sinon.createStubInstance<ApplicationUserService>(ApplicationUserService, {
+          userService: () =>
+            sinon.createStubInstance<UserService>(UserService, {
               retrieve: sinon.stub().resolves({}),
             } as any),
         },

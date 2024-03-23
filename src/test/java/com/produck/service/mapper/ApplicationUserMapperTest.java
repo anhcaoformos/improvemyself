@@ -1,24 +1,24 @@
 package com.produck.service.mapper;
 
-import static com.produck.domain.ApplicationUserAsserts.*;
-import static com.produck.domain.ApplicationUserTestSamples.*;
+import static com.produck.domain.UserAsserts.*;
+import static com.produck.domain.UserTestSamples.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ApplicationUserMapperTest {
+class UserMapperTest {
 
-    private ApplicationUserMapper applicationUserMapper;
+    private UserMapper userMapper;
 
     @BeforeEach
     void setUp() {
-        applicationUserMapper = new ApplicationUserMapperImpl();
+        userMapper = new UserMapperImpl();
     }
 
     @Test
     void shouldConvertToDtoAndBack() {
-        var expected = getApplicationUserSample1();
-        var actual = applicationUserMapper.toEntity(applicationUserMapper.toDto(expected));
-        assertApplicationUserAllPropertiesEquals(expected, actual);
+        var expected = getUserSample1();
+        var actual = userMapper.toEntity(userMapper.toDto(expected));
+        assertUserAllPropertiesEquals(expected, actual);
     }
 }

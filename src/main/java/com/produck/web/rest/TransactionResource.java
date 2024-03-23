@@ -37,7 +37,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.produck.domain.Transaction}.
  */
 @RestController
-@RequestMapping("/api/transactions")
+@RequestMapping("/api")
 public class TransactionResource {
 
     private final Logger log = LoggerFactory.getLogger(TransactionResource.class);

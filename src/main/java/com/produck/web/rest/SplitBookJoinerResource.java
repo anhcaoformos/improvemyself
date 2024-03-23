@@ -27,7 +27,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.produck.domain.SplitBookJoiner}.
  */
 @RestController
-@RequestMapping("/api/split-book-joiners")
+@RequestMapping("/api")
 public class SplitBookJoinerResource {
 
     private final Logger log = LoggerFactory.getLogger(SplitBookJoinerResource.class);
@@ -53,7 +53,7 @@ public class SplitBookJoinerResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new splitBookJoinerDTO, or with status {@code 400 (Bad Request)} if the splitBookJoiner has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("")
+    @PostMapping("/split-book-joiners")
     public ResponseEntity<SplitBookJoinerDTO> createSplitBookJoiner(@RequestBody SplitBookJoinerDTO splitBookJoinerDTO)
         throws URISyntaxException {
         log.debug("REST request to save SplitBookJoiner : {}", splitBookJoinerDTO);
@@ -76,7 +76,7 @@ public class SplitBookJoinerResource {
      * or with status {@code 500 (Internal Server Error)} if the splitBookJoinerDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/{id}")
+    @PutMapping("/split-book-joiners/{id}")
     public ResponseEntity<SplitBookJoinerDTO> updateSplitBookJoiner(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody SplitBookJoinerDTO splitBookJoinerDTO
@@ -110,7 +110,7 @@ public class SplitBookJoinerResource {
      * or with status {@code 500 (Internal Server Error)} if the splitBookJoinerDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/split-book-joiners/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<SplitBookJoinerDTO> partialUpdateSplitBookJoiner(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody SplitBookJoinerDTO splitBookJoinerDTO
@@ -142,7 +142,7 @@ public class SplitBookJoinerResource {
      * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of splitBookJoiners in body.
      */
-    @GetMapping("")
+    @GetMapping("/split-book-joiners")
     public ResponseEntity<List<SplitBookJoinerDTO>> getAllSplitBookJoiners(
         @org.springdoc.core.annotations.ParameterObject Pageable pageable,
         @RequestParam(name = "filter", required = false) String filter
@@ -163,7 +163,7 @@ public class SplitBookJoinerResource {
      * @param id the id of the splitBookJoinerDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the splitBookJoinerDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/{id}")
+    @GetMapping("/split-book-joiners/{id}")
     public ResponseEntity<SplitBookJoinerDTO> getSplitBookJoiner(@PathVariable("id") Long id) {
         log.debug("REST request to get SplitBookJoiner : {}", id);
         Optional<SplitBookJoinerDTO> splitBookJoinerDTO = splitBookJoinerService.findOne(id);
@@ -176,7 +176,7 @@ public class SplitBookJoinerResource {
      * @param id the id of the splitBookJoinerDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/split-book-joiners/{id}")
     public ResponseEntity<Void> deleteSplitBookJoiner(@PathVariable("id") Long id) {
         log.debug("REST request to delete SplitBookJoiner : {}", id);
         splitBookJoinerService.delete(id);

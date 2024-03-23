@@ -1,12 +1,12 @@
 package com.produck.domain;
 
-import static com.produck.domain.ApplicationUserTestSamples.*;
 import static com.produck.domain.GoalTestSamples.*;
 import static com.produck.domain.LedgerTestSamples.*;
 import static com.produck.domain.ObjectiveTestSamples.*;
 import static com.produck.domain.PaymentCategoryTestSamples.*;
 import static com.produck.domain.PaymentMethodTestSamples.*;
 import static com.produck.domain.TransactionTestSamples.*;
+import static com.produck.domain.UserTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.produck.web.rest.TestUtil;
@@ -141,14 +141,14 @@ class LedgerTest {
     }
 
     @Test
-    void applicationUserTest() throws Exception {
+    void userTest() throws Exception {
         Ledger ledger = getLedgerRandomSampleGenerator();
-        ApplicationUser applicationUserBack = getApplicationUserRandomSampleGenerator();
+        User userBack = getUserRandomSampleGenerator();
 
-        ledger.setApplicationUser(applicationUserBack);
-        assertThat(ledger.getApplicationUser()).isEqualTo(applicationUserBack);
+        ledger.setUser(userBack);
+        assertThat(ledger.getUser()).isEqualTo(userBack);
 
-        ledger.applicationUser(null);
-        assertThat(ledger.getApplicationUser()).isNull();
+        ledger.user(null);
+        assertThat(ledger.getUser()).isNull();
     }
 }

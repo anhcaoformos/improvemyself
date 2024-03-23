@@ -25,7 +25,7 @@
       "transaction": "Transaction",
       "paymentMethod": "Payment Method",
       "paymentCategory": "Payment Category",
-      "applicationUser": "Application User"
+      "user": "User"
     }
   }
 }

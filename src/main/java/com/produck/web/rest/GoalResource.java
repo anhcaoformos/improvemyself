@@ -33,7 +33,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.produck.domain.Goal}.
  */
 @RestController
-@RequestMapping("/api/goals")
+@RequestMapping("/api")
 public class GoalResource {
 
     private final Logger log = LoggerFactory.getLogger(GoalResource.class);

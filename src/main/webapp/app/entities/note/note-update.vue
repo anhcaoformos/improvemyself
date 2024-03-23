@@ -153,25 +153,15 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-control-label" v-text="t$('improvemyselfApp.note.applicationUser')" for="note-applicationUser"></label>
-            <select
-              class="form-control"
-              id="note-applicationUser"
-              data-cy="applicationUser"
-              name="applicationUser"
-              v-model="note.applicationUser"
-            >
+            <label class="form-control-label" v-text="t$('improvemyselfApp.note.user')" for="note-user"></label>
+            <select class="form-control" id="note-user" data-cy="user" name="user" v-model="note.user">
               <option v-bind:value="null"></option>
               <option
-                v-bind:value="
-                  note.applicationUser && applicationUserOption.id === note.applicationUser.id
-                    ? note.applicationUser
-                    : applicationUserOption
-                "
-                v-for="applicationUserOption in applicationUsers"
-                :key="applicationUserOption.id"
+                v-bind:value="note.user && userOption.id === note.user.id ? note.user : userOption"
+                v-for="userOption in users"
+                :key="userOption.id"
               >
-                {{ applicationUserOption.id }}
+                {{ userOption.id }}
               </option>
             </select>
           </div>

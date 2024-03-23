@@ -54,6 +54,11 @@ public class Transaction implements Serializable {
     @JoinColumn(unique = true)
     private PaymentMethod paymentMethod;
 
+    @JsonIgnoreProperties(value = { "ledger", "transaction" }, allowSetters = true)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(unique = true)
+    private PaymentMethod targetPaymentMethod;
+
     @JsonIgnoreProperties(value = { "ledger", "transaction", "objective" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)

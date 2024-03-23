@@ -8,7 +8,7 @@ import NoteUpdate from './note-update.vue';
 import NoteService from './note.service';
 import AlertService from '@/shared/alert/alert.service';
 
-import ApplicationUserService from '@/entities/application-user/application-user.service';
+import UserService from '@/entities/user/user.service';
 
 type NoteUpdateComponentType = InstanceType<typeof NoteUpdate>;
 
@@ -53,8 +53,8 @@ describe('Component Tests', () => {
         provide: {
           alertService,
           noteService: () => noteServiceStub,
-          applicationUserService: () =>
-            sinon.createStubInstance<ApplicationUserService>(ApplicationUserService, {
+          userService: () =>
+            sinon.createStubInstance<UserService>(UserService, {
               retrieve: sinon.stub().resolves({}),
             } as any),
         },

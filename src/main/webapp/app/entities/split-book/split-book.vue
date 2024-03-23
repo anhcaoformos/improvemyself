@@ -40,9 +40,9 @@
               <span v-text="t$('improvemyselfApp.splitBook.name')"></span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'name'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('applicationUser.id')">
-              <span v-text="t$('improvemyselfApp.splitBook.applicationUser')"></span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'applicationUser.id'"></jhi-sort-indicator>
+            <th scope="row" v-on:click="changeOrder('user.id')">
+              <span v-text="t$('improvemyselfApp.splitBook.user')"></span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'user.id'"></jhi-sort-indicator>
             </th>
             <th scope="row"></th>
           </tr>
@@ -55,10 +55,8 @@
             <td>{{ splitBook.description }}</td>
             <td>{{ splitBook.name }}</td>
             <td>
-              <div v-if="splitBook.applicationUser">
-                <router-link :to="{ name: 'ApplicationUserView', params: { applicationUserId: splitBook.applicationUser.id } }">{{
-                  splitBook.applicationUser.id
-                }}</router-link>
+              <div v-if="splitBook.user">
+                <router-link :to="{ name: 'UserView', params: { userId: splitBook.user.id } }">{{ splitBook.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">

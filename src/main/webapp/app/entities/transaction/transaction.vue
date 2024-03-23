@@ -56,6 +56,10 @@
               <span v-text="t$('improvemyselfApp.transaction.paymentMethod')"></span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'paymentMethod.id'"></jhi-sort-indicator>
             </th>
+            <th scope="row" v-on:click="changeOrder('targetPaymentMethod.id')">
+              <span v-text="t$('improvemyselfApp.transaction.targetPaymentMethod')"></span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'targetPaymentMethod.id'"></jhi-sort-indicator>
+            </th>
             <th scope="row" v-on:click="changeOrder('paymentCategory.id')">
               <span v-text="t$('improvemyselfApp.transaction.paymentCategory')"></span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'paymentCategory.id'"></jhi-sort-indicator>
@@ -88,6 +92,14 @@
                 <router-link :to="{ name: 'PaymentMethodView', params: { paymentMethodId: transaction.paymentMethod.id } }">{{
                   transaction.paymentMethod.id
                 }}</router-link>
+              </div>
+            </td>
+            <td>
+              <div v-if="transaction.targetPaymentMethod">
+                <router-link
+                  :to="{ name: 'TargetPaymentMethodView', params: { targetPaymentMethodId: transaction.targetPaymentMethod.id } }"
+                  >{{ transaction.targetPaymentMethod.id }}</router-link
+                >
               </div>
             </td>
             <td>

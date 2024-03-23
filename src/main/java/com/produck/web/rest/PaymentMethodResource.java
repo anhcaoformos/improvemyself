@@ -33,7 +33,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.produck.domain.PaymentMethod}.
  */
 @RestController
-@RequestMapping("/api/payment-methods")
+@RequestMapping("/api")
 public class PaymentMethodResource {
 
     private final Logger log = LoggerFactory.getLogger(PaymentMethodResource.class);

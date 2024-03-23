@@ -1,10 +1,10 @@
-import { type IApplicationUser } from '@/shared/model/application-user.model';
+import { type IUser } from '@/shared/model/user.model';
 
 export interface ILedger {
   id?: number;
   name?: string | null;
   isDefault?: boolean | null;
-  applicationUser?: IApplicationUser | null;
+  user?: IUser | null;
 }
 
 export class Ledger implements ILedger {
@@ -12,7 +12,7 @@ export class Ledger implements ILedger {
     public id?: number,
     public name?: string | null,
     public isDefault?: boolean | null,
-    public applicationUser?: IApplicationUser | null,
+    public user?: IUser | null,
   ) {
     this.isDefault = this.isDefault ?? false;
   }

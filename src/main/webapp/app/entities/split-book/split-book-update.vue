@@ -37,29 +37,15 @@
             />
           </div>
           <div class="form-group">
-            <label
-              class="form-control-label"
-              v-text="t$('improvemyselfApp.splitBook.applicationUser')"
-              for="split-book-applicationUser"
-            ></label>
-            <select
-              class="form-control"
-              id="split-book-applicationUser"
-              data-cy="applicationUser"
-              name="applicationUser"
-              v-model="splitBook.applicationUser"
-            >
+            <label class="form-control-label" v-text="t$('improvemyselfApp.splitBook.user')" for="split-book-user"></label>
+            <select class="form-control" id="split-book-user" data-cy="user" name="user" v-model="splitBook.user">
               <option v-bind:value="null"></option>
               <option
-                v-bind:value="
-                  splitBook.applicationUser && applicationUserOption.id === splitBook.applicationUser.id
-                    ? splitBook.applicationUser
-                    : applicationUserOption
-                "
-                v-for="applicationUserOption in applicationUsers"
-                :key="applicationUserOption.id"
+                v-bind:value="splitBook.user && userOption.id === splitBook.user.id ? splitBook.user : userOption"
+                v-for="userOption in users"
+                :key="userOption.id"
               >
-                {{ applicationUserOption.id }}
+                {{ userOption.id }}
               </option>
             </select>
           </div>

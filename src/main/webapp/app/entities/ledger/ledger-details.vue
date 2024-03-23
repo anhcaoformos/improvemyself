@@ -19,13 +19,11 @@
             <span>{{ ledger.isDefault }}</span>
           </dd>
           <dt>
-            <span v-text="t$('improvemyselfApp.ledger.applicationUser')"></span>
+            <span v-text="t$('improvemyselfApp.ledger.user')"></span>
           </dt>
           <dd>
-            <div v-if="ledger.applicationUser">
-              <router-link :to="{ name: 'ApplicationUserView', params: { applicationUserId: ledger.applicationUser.id } }">{{
-                ledger.applicationUser.id
-              }}</router-link>
+            <div v-if="ledger.user">
+              <router-link :to="{ name: 'UserView', params: { userId: ledger.user.id } }">{{ ledger.user.id }}</router-link>
             </div>
           </dd>
         </dl>

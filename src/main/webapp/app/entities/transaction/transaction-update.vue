@@ -137,6 +137,33 @@
           <div class="form-group">
             <label
               class="form-control-label"
+              v-text="t$('improvemyselfApp.transaction.targetPaymentMethod')"
+              for="transaction-targetPaymentMethod"
+            ></label>
+            <select
+              class="form-control"
+              id="transaction-targetPaymentMethod"
+              data-cy="paymentMethod"
+              name="paymentMethod"
+              v-model="transaction.paymentMethod"
+            >
+              <option v-bind:value="null"></option>
+              <option
+                v-bind:value="
+                  transaction.paymentMethod && paymentMethodOption.id === transaction.paymentMethod.id
+                    ? transaction.paymentMethod
+                    : paymentMethodOption
+                "
+                v-for="paymentMethodOption in paymentMethods"
+                :key="paymentMethodOption.id"
+              >
+                {{ paymentMethodOption.id }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label
+              class="form-control-label"
               v-text="t$('improvemyselfApp.transaction.paymentCategory')"
               for="transaction-paymentCategory"
             ></label>

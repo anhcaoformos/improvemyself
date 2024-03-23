@@ -7,8 +7,8 @@ import NoteService from './note.service';
 import { useValidation } from '@/shared/composables';
 import { useAlertService } from '@/shared/alert/alert.service';
 
-import ApplicationUserService from '@/entities/application-user/application-user.service';
-import { type IApplicationUser } from '@/shared/model/application-user.model';
+import UserService from '@/entities/user/user.service';
+import { type IUser } from '@/shared/model/user.model';
 import { type INote, Note } from '@/shared/model/note.model';
 import { NoteType } from '@/shared/model/enumerations/note-type.model';
 import { RepeatType } from '@/shared/model/enumerations/repeat-type.model';
@@ -23,9 +23,9 @@ export default defineComponent({
 
     const note: Ref<INote> = ref(new Note());
 
-    const applicationUserService = inject('applicationUserService', () => new ApplicationUserService());
+    const userService = inject('userService', () => new UserService());
 
-    const applicationUsers: Ref<IApplicationUser[]> = ref([]);
+    const users: Ref<IUser[]> = ref([]);
     const noteTypeValues: Ref<string[]> = ref(Object.keys(NoteType));
     const repeatTypeValues: Ref<string[]> = ref(Object.keys(RepeatType));
     const alertTypeValues: Ref<string[]> = ref(Object.keys(AlertType));
@@ -51,10 +51,10 @@ export default defineComponent({
     }
 
     const initRelationships = () => {
-      applicationUserService()
+      userService()
         .retrieve()
         .then(res => {
-          applicationUsers.value = res.data;
+          users.value = res.data;
         });
     };
 
@@ -70,7 +70,7 @@ export default defineComponent({
       noteType: {},
       repeatType: {},
       alertType: {},
-      applicationUser: {},
+      user: {},
     };
     const v$ = useVuelidate(validationRules, note as any);
     v$.value.$validate();
@@ -85,7 +85,7 @@ export default defineComponent({
       alertTypeValues,
       isSaving,
       currentLanguage,
-      applicationUsers,
+      users,
       v$,
       t$,
     };

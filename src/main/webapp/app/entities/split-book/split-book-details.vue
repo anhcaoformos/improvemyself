@@ -19,13 +19,11 @@
             <span>{{ splitBook.name }}</span>
           </dd>
           <dt>
-            <span v-text="t$('improvemyselfApp.splitBook.applicationUser')"></span>
+            <span v-text="t$('improvemyselfApp.splitBook.user')"></span>
           </dt>
           <dd>
-            <div v-if="splitBook.applicationUser">
-              <router-link :to="{ name: 'ApplicationUserView', params: { applicationUserId: splitBook.applicationUser.id } }">{{
-                splitBook.applicationUser.id
-              }}</router-link>
+            <div v-if="splitBook.user">
+              <router-link :to="{ name: 'UserView', params: { userId: splitBook.user.id } }">{{ splitBook.user.id }}</router-link>
             </div>
           </dd>
         </dl>

@@ -5,7 +5,7 @@
   "applications": "*",
   "dto": "mapstruct",
   "fields": [],
-  "name": "ApplicationUser",
+  "name": "User",
   "pagination": "pagination",
   "relationships": [
     {

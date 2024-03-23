@@ -1,12 +1,7 @@
 import { Authority } from '@/shared/security/authority';
+const Entities = () => import('@/entities/entities.vue');
 /* tslint:disable */
 // prettier-ignore
-const Entities = () => import('@/entities/entities.vue');
-
-const ApplicationUser = () => import('@/entities/application-user/application-user.vue');
-const ApplicationUserUpdate = () => import('@/entities/application-user/application-user-update.vue');
-const ApplicationUserDetails = () => import('@/entities/application-user/application-user-details.vue');
-
 const Ledger = () => import('@/entities/ledger/ledger.vue');
 const LedgerUpdate = () => import('@/entities/ledger/ledger-update.vue');
 const LedgerDetails = () => import('@/entities/ledger/ledger-details.vue');
@@ -53,30 +48,6 @@ export default {
   path: '/',
   component: Entities,
   children: [
-    {
-      path: 'application-user',
-      name: 'ApplicationUser',
-      component: ApplicationUser,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'application-user/new',
-      name: 'ApplicationUserCreate',
-      component: ApplicationUserUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'application-user/:applicationUserId/edit',
-      name: 'ApplicationUserEdit',
-      component: ApplicationUserUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'application-user/:applicationUserId/view',
-      name: 'ApplicationUserView',
-      component: ApplicationUserDetails,
-      meta: { authorities: [Authority.USER] },
-    },
     {
       path: 'ledger',
       name: 'Ledger',

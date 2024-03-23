@@ -1,7 +1,7 @@
 package com.produck.domain;
 
-import static com.produck.domain.ApplicationUserTestSamples.*;
 import static com.produck.domain.NoteTestSamples.*;
+import static com.produck.domain.UserTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.produck.web.rest.TestUtil;
@@ -24,14 +24,14 @@ class NoteTest {
     }
 
     @Test
-    void applicationUserTest() throws Exception {
+    void userTest() throws Exception {
         Note note = getNoteRandomSampleGenerator();
-        ApplicationUser applicationUserBack = getApplicationUserRandomSampleGenerator();
+        User userBack = getUserRandomSampleGenerator();
 
-        note.setApplicationUser(applicationUserBack);
-        assertThat(note.getApplicationUser()).isEqualTo(applicationUserBack);
+        note.setUser(userBack);
+        assertThat(note.getUser()).isEqualTo(userBack);
 
-        note.applicationUser(null);
-        assertThat(note.getApplicationUser()).isNull();
+        note.user(null);
+        assertThat(note.getUser()).isNull();
     }
 }

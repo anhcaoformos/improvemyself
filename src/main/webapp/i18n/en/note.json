@@ -25,7 +25,7 @@
       "noteType": "Note Type",
       "repeatType": "Repeat Type",
       "alertType": "Alert Type",
-      "applicationUser": "Application User"
+      "user": "User"
     }
   }
 }

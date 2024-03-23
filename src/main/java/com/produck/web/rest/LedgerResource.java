@@ -31,7 +31,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.produck.domain.Ledger}.
  */
 @RestController
-@RequestMapping("/api/ledgers")
+@RequestMapping("/api")
 public class LedgerResource {
 
     private final Logger log = LoggerFactory.getLogger(LedgerResource.class);

@@ -1,9 +1,9 @@
 package com.produck.domain;
 
-import static com.produck.domain.ApplicationUserTestSamples.*;
 import static com.produck.domain.SplitBookDetailTestSamples.*;
 import static com.produck.domain.SplitBookJoinerTestSamples.*;
 import static com.produck.domain.SplitBookTestSamples.*;
+import static com.produck.domain.UserTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.produck.web.rest.TestUtil;
@@ -72,14 +72,14 @@ class SplitBookTest {
     }
 
     @Test
-    void applicationUserTest() throws Exception {
+    void userTest() throws Exception {
         SplitBook splitBook = getSplitBookRandomSampleGenerator();
-        ApplicationUser applicationUserBack = getApplicationUserRandomSampleGenerator();
+        User userBack = getUserRandomSampleGenerator();
 
-        splitBook.setApplicationUser(applicationUserBack);
-        assertThat(splitBook.getApplicationUser()).isEqualTo(applicationUserBack);
+        splitBook.setUser(userBack);
+        assertThat(splitBook.getUser()).isEqualTo(userBack);
 
-        splitBook.applicationUser(null);
-        assertThat(splitBook.getApplicationUser()).isNull();
+        splitBook.user(null);
+        assertThat(splitBook.getUser()).isNull();
     }
 }

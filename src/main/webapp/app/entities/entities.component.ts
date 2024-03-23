@@ -1,6 +1,6 @@
 import { defineComponent, provide } from 'vue';
 
-import ApplicationUserService from './application-user/application-user.service';
+import UserService from './user/user.service';
 import LedgerService from './ledger/ledger.service';
 import TransactionService from './transaction/transaction.service';
 import GoalService from './goal/goal.service';
@@ -11,7 +11,6 @@ import SplitBookService from './split-book/split-book.service';
 import SplitBookDetailService from './split-book-detail/split-book-detail.service';
 import SplitBookJoinerService from './split-book-joiner/split-book-joiner.service';
 import NoteService from './note/note.service';
-import UserService from '@/entities/user/user.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 export default defineComponent({
@@ -19,7 +18,7 @@ export default defineComponent({
   name: 'Entities',
   setup() {
     provide('userService', () => new UserService());
-    provide('applicationUserService', () => new ApplicationUserService());
+    provide('userService', () => new UserService());
     provide('ledgerService', () => new LedgerService());
     provide('transactionService', () => new TransactionService());
     provide('goalService', () => new GoalService());
