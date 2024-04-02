@@ -9,7 +9,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Goal} and its DTO {@link GoalDTO}.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface GoalMapper extends EntityMapper<GoalDTO, Goal> {
     @Mapping(target = "ledger", source = "ledger", qualifiedByName = "ledgerId")
     GoalDTO toDto(Goal s);

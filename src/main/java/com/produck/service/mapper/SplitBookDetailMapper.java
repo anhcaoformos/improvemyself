@@ -11,7 +11,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link SplitBookDetail} and its DTO {@link SplitBookDetailDTO}.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SplitBookDetailMapper extends EntityMapper<SplitBookDetailDTO, SplitBookDetail> {
     @Mapping(target = "splitBookJoiner", source = "splitBookJoiner", qualifiedByName = "splitBookJoinerId")
     @Mapping(target = "splitBook", source = "splitBook", qualifiedByName = "splitBookId")

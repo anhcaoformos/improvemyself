@@ -11,7 +11,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Objective} and its DTO {@link ObjectiveDTO}.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ObjectiveMapper extends EntityMapper<ObjectiveDTO, Objective> {
     @Mapping(target = "paymentCategory", source = "paymentCategory", qualifiedByName = "paymentCategoryId")
     @Mapping(target = "ledger", source = "ledger", qualifiedByName = "ledgerId")

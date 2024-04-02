@@ -9,7 +9,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link PaymentCategory} and its DTO {@link PaymentCategoryDTO}.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PaymentCategoryMapper extends EntityMapper<PaymentCategoryDTO, PaymentCategory> {
     @Mapping(target = "ledger", source = "ledger", qualifiedByName = "ledgerId")
     PaymentCategoryDTO toDto(PaymentCategory s);
