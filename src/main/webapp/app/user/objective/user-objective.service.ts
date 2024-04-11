@@ -3,8 +3,11 @@ import axios from 'axios';
 import buildPaginationQueryOpts from '@/shared/sort/sorts';
 
 import { type IObjective } from '@/shared/model/objective.model';
+import type { ObjectiveType } from '../../shared/model/enumerations/objective-type.model';
 
 const baseApiUrl = 'api/user/ledger/objectives';
+const resourcePrefixUrl = 'api/user/ledger';
+const resourceSuffixUrl = 'objectives';
 
 export default class UserObjectiveService {
   public find(id: number): Promise<IObjective> {
@@ -78,6 +81,36 @@ export default class UserObjectiveService {
         .patch(`${baseApiUrl}/${entity.id}`, entity)
         .then(res => {
           resolve(res.data);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
+  public retrieveBy(ledgerId: number, paginationQuery?: any): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get(`${resourcePrefixUrl}/${ledgerId}/${resourceSuffixUrl}` + `?${buildPaginationQueryOpts(paginationQuery)}`)
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
+  public deleteBy(id: number, ledgerId: number, type: ObjectiveType, paymentCategoryId?: number): Promise<any> {
+    let options: {} = { ledgerId: ledgerId, type: type };
+    if (paymentCategoryId) {
+      options = { ...options, paymentCategoryId: paymentCategoryId };
+    }
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .delete(`${resourcePrefixUrl}/${ledgerId}/${resourceSuffixUrl}/${id}`, { params: options })
+        .then(res => {
+          resolve(res);
         })
         .catch(err => {
           reject(err);

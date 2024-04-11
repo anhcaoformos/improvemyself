@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.note.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'NoteCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserNoteCreate' }" custom v-slot="{ navigate }">
           <button @click="navigate" id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-note">
             <font-awesome-icon icon="plus"></font-awesome-icon>
             <span v-text="t$('improvemyselfApp.note.home.createLabel')"></span>
@@ -63,38 +63,38 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="note in notes" :key="user.id" data-cy="entityTable">
+          <tr v-for="note in notes" :key="note.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'NoteView', params: { noteId: user.id } }">{{ user.id }}</router-link>
+              <router-link :to="{ name: 'NoteView', params: { noteId: note.id } }">{{ note.id }}</router-link>
             </td>
-            <td>{{ user.title }}</td>
-            <td>{{ user.description }}</td>
-            <td>{{ user.noteDateFrom }}</td>
-            <td>{{ user.noteDateTo }}</td>
-            <td v-text="t$('improvemyselfApp.NoteType.' + user.noteType)"></td>
-            <td v-text="t$('improvemyselfApp.RepeatType.' + user.repeatType)"></td>
-            <td v-text="t$('improvemyselfApp.AlertType.' + user.alertType)"></td>
+            <td>{{ note.title }}</td>
+            <td>{{ note.description }}</td>
+            <td>{{ note.noteDateFrom }}</td>
+            <td>{{ note.noteDateTo }}</td>
+            <td v-text="t$('improvemyselfApp.NoteType.' + note.noteType)"></td>
+            <td v-text="t$('improvemyselfApp.RepeatType.' + note.repeatType)"></td>
+            <td v-text="t$('improvemyselfApp.AlertType.' + note.alertType)"></td>
             <td>
-              <div v-if="user.user">
-                <router-link :to="{ name: 'UserView', params: { userId: user.user.id } }">{{ user.user.id }}</router-link>
+              <div v-if="note.user">
+                <router-link :to="{ name: 'JhiUserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'NoteView', params: { noteId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserNoteView', params: { noteId: note.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.view')"></span>
                   </button>
                 </router-link>
-                <router-link :to="{ name: 'NoteEdit', params: { noteId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserNoteEdit', params: { noteId: note.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.edit')"></span>
                   </button>
                 </router-link>
                 <b-button
-                  v-on:click="prepareRemove(user)"
+                  v-on:click="prepareRemove(note)"
                   variant="danger"
                   class="btn btn-sm"
                   data-cy="entityDeleteButton"

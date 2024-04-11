@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.paymentMethod.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'PaymentMethodCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserPaymentMethodCreate' }" custom v-slot="{ navigate }">
           <button
             @click="navigate"
             id="jh-create-entity"
@@ -58,7 +58,7 @@
         <tbody>
           <tr v-for="paymentMethod in paymentMethods" :key="paymentMethod.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'PaymentMethodView', params: { paymentMethodId: paymentMethod.id } }">{{
+              <router-link :to="{ name: 'UserPaymentMethodView', params: { paymentMethodId: paymentMethod.id } }">{{
                 paymentMethod.id
               }}</router-link>
             </td>
@@ -68,7 +68,7 @@
             <td>{{ paymentMethod.isHidden }}</td>
             <td>
               <div v-if="paymentMethod.ledger">
-                <router-link :to="{ name: 'LedgerView', params: { ledgerId: paymentMethod.ledger.id } }">{{
+                <router-link :to="{ name: 'UserLedgerView', params: { ledgerId: paymentMethod.ledger.id } }">{{
                   paymentMethod.ledger.id
                 }}</router-link>
               </div>
@@ -76,7 +76,7 @@
             <td class="text-right">
               <div class="btn-group">
                 <router-link
-                  :to="{ name: 'PaymentMethodView', params: { paymentMethodId: paymentMethod.id } }"
+                  :to="{ name: 'UserPaymentMethodView', params: { paymentMethodId: paymentMethod.id } }"
                   custom
                   v-slot="{ navigate }"
                 >
@@ -86,7 +86,7 @@
                   </button>
                 </router-link>
                 <router-link
-                  :to="{ name: 'PaymentMethodEdit', params: { paymentMethodId: paymentMethod.id } }"
+                  :to="{ name: 'UserPaymentMethodEdit', params: { paymentMethodId: paymentMethod.id } }"
                   custom
                   v-slot="{ navigate }"
                 >

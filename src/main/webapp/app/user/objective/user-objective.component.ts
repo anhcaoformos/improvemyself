@@ -44,7 +44,7 @@ export default defineComponent({
           size: itemsPerPage.value,
           sort: sort(),
         };
-        const res = await objectiveService().retrieve(paginationQuery);
+        const res = await objectiveService().retrieveBy(paginationQuery);
         totalItems.value = Number(res.headers['x-total-count']);
         queryCount.value = totalItems.value;
         objectives.value = res.data;

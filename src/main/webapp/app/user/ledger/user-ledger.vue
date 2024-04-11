@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.ledger.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'LedgerCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserLedgerCreate' }" custom v-slot="{ navigate }">
           <button
             @click="navigate"
             id="jh-create-entity"
@@ -40,41 +40,32 @@
               <span v-text="t$('improvemyselfApp.ledger.isDefault')"></span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'isDefault'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('user.id')">
-              <span v-text="t$('improvemyselfApp.ledger.user')"></span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'user.id'"></jhi-sort-indicator>
-            </th>
             <th scope="row"></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="ledger in ledgers" :key="user.id" data-cy="entityTable">
+          <tr v-for="ledger in ledgers" :key="ledger.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'LedgerView', params: { ledgerId: user.id } }">{{ user.id }}</router-link>
+              <router-link :to="{ name: 'UserLedgerView', params: { ledgerId: ledger.id } }">{{ ledger.id }}</router-link>
             </td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.isDefault }}</td>
-            <td>
-              <div v-if="user.user">
-                <router-link :to="{ name: 'UserView', params: { userId: user.user.id } }">{{ user.user.id }}</router-link>
-              </div>
-            </td>
+            <td>{{ ledger.name }}</td>
+            <td>{{ ledger.isDefault }}</td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'LedgerView', params: { ledgerId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserLedgerView', params: { ledgerId: ledger.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.view')"></span>
                   </button>
                 </router-link>
-                <router-link :to="{ name: 'LedgerEdit', params: { ledgerId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserLedgerEdit', params: { ledgerId: ledger.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.edit')"></span>
                   </button>
                 </router-link>
                 <b-button
-                  v-on:click="prepareRemove(user)"
+                  v-on:click="prepareRemove(ledger)"
                   variant="danger"
                   class="btn btn-sm"
                   data-cy="entityDeleteButton"

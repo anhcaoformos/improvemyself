@@ -53,7 +53,7 @@
           </dt>
           <dd>
             <div v-if="note.user">
-              <router-link :to="{ name: 'UserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
+              <router-link :to="{ name: 'JhiUserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
             </div>
           </dd>
         </dl>

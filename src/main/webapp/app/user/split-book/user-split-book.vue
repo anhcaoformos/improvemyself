@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.splitBook.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'SplitBookCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserSplitBookCreate' }" custom v-slot="{ navigate }">
           <button
             @click="navigate"
             id="jh-create-entity"
@@ -50,24 +50,24 @@
         <tbody>
           <tr v-for="splitBook in splitBooks" :key="splitBook.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'SplitBookView', params: { splitBookId: splitBook.id } }">{{ splitBook.id }}</router-link>
+              <router-link :to="{ name: 'UserSplitBookView', params: { splitBookId: splitBook.id } }">{{ splitBook.id }}</router-link>
             </td>
             <td>{{ splitBook.description }}</td>
             <td>{{ splitBook.name }}</td>
             <td>
               <div v-if="splitBook.user">
-                <router-link :to="{ name: 'UserView', params: { userId: splitBook.user.id } }">{{ splitBook.user.id }}</router-link>
+                <router-link :to="{ name: 'JhiUserView', params: { userId: splitBook.user.id } }">{{ splitBook.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'SplitBookView', params: { splitBookId: splitBook.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserSplitBookView', params: { splitBookId: splitBook.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.view')"></span>
                   </button>
                 </router-link>
-                <router-link :to="{ name: 'SplitBookEdit', params: { splitBookId: splitBook.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserSplitBookEdit', params: { splitBookId: splitBook.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.edit')"></span>

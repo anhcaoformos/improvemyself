@@ -23,7 +23,7 @@
           </dt>
           <dd>
             <div v-if="ledger.user">
-              <router-link :to="{ name: 'UserView', params: { userId: ledger.user.id } }">{{ ledger.user.id }}</router-link>
+              <router-link :to="{ name: 'JhiUserView', params: { userId: ledger.user.id } }">{{ ledger.user.id }}</router-link>
             </div>
           </dd>
         </dl>

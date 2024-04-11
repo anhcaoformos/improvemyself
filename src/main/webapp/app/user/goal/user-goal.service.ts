@@ -4,7 +4,7 @@ import buildPaginationQueryOpts from '@/shared/sort/sorts';
 
 import { type IGoal } from '@/shared/model/goal.model';
 
-const baseApiUrl = 'api/user/goals';
+const baseApiUrl = 'api/user/ledger/goals';
 
 export default class UserGoalService {
   public find(id: number): Promise<IGoal> {

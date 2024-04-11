@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.transaction.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'TransactionCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserTransactionCreate' }" custom v-slot="{ navigate }">
           <button
             @click="navigate"
             id="jh-create-entity"
@@ -72,63 +72,66 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="transaction in transactions" :key="user.id" data-cy="entityTable">
+          <tr v-for="transaction in transactions" :key="transaction.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'TransactionView', params: { transactionId: user.id } }">{{ user.id }}</router-link>
+              <router-link :to="{ name: 'TransactionView', params: { transactionId: transaction.id } }">{{ transaction.id }}</router-link>
             </td>
-            <td>{{ user.amount }}</td>
-            <td>{{ user.description }}</td>
-            <td>{{ user.transactionDate }}</td>
-            <td v-text="t$('improvemyselfApp.TransactionType.' + user.transactionType)"></td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.transactionDate }}</td>
+            <td v-text="t$('improvemyselfApp.TransactionType.' + transaction.transactionType)"></td>
             <td>
-              <div v-if="user.objective">
-                <router-link :to="{ name: 'ObjectiveView', params: { objectiveId: user.objective.id } }">{{
-                  user.objective.id
+              <div v-if="transaction.objective">
+                <router-link :to="{ name: 'UserObjectiveView', params: { objectiveId: transaction.objective.id } }">{{
+                  transaction.objective.id
                 }}</router-link>
               </div>
             </td>
             <td>
-              <div v-if="user.paymentMethod">
-                <router-link :to="{ name: 'PaymentMethodView', params: { paymentMethodId: user.paymentMethod.id } }">{{
-                  user.paymentMethod.id
+              <div v-if="transaction.paymentMethod">
+                <router-link :to="{ name: 'UserPaymentMethodView', params: { paymentMethodId: transaction.paymentMethod.id } }">{{
+                  transaction.paymentMethod.id
                 }}</router-link>
               </div>
             </td>
             <td>
-              <div v-if="user.targetPaymentMethod">
-                <router-link :to="{ name: 'TargetPaymentMethodView', params: { targetPaymentMethodId: user.targetPaymentMethod.id } }">{{
-                  user.targetPaymentMethod.id
+              <div v-if="transaction.targetPaymentMethod">
+                <router-link
+                  :to="{ name: 'UserPaymentMethodView', params: { targetPaymentMethodId: transaction.targetPaymentMethod.id } }"
+                  >{{ transaction.targetPaymentMethod.id }}</router-link
+                >
+              </div>
+            </td>
+            <td>
+              <div v-if="transaction.paymentCategory">
+                <router-link :to="{ name: 'UserPaymentCategoryView', params: { paymentCategoryId: transaction.paymentCategory.id } }">{{
+                  transaction.paymentCategory.id
                 }}</router-link>
               </div>
             </td>
             <td>
-              <div v-if="user.paymentCategory">
-                <router-link :to="{ name: 'PaymentCategoryView', params: { paymentCategoryId: user.paymentCategory.id } }">{{
-                  user.paymentCategory.id
+              <div v-if="transaction.ledger">
+                <router-link :to="{ name: 'UserLedgerView', params: { ledgerId: transaction.ledger.id } }">{{
+                  transaction.ledger.id
                 }}</router-link>
-              </div>
-            </td>
-            <td>
-              <div v-if="user.ledger">
-                <router-link :to="{ name: 'LedgerView', params: { ledgerId: user.ledger.id } }">{{ user.ledger.id }}</router-link>
               </div>
             </td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'TransactionView', params: { transactionId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserTransactionView', params: { transactionId: transaction.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.view')"></span>
                   </button>
                 </router-link>
-                <router-link :to="{ name: 'TransactionEdit', params: { transactionId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserTransactionEdit', params: { transactionId: transaction.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.edit')"></span>
                   </button>
                 </router-link>
                 <b-button
-                  v-on:click="prepareRemove(user)"
+                  v-on:click="prepareRemove(transaction)"
                   variant="danger"
                   class="btn btn-sm"
                   data-cy="entityDeleteButton"

@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.paymentCategory.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'PaymentCategoryCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserPaymentCategoryCreate' }" custom v-slot="{ navigate }">
           <button
             @click="navigate"
             id="jh-create-entity"
@@ -68,7 +68,7 @@
             <td>{{ paymentCategory.isHidden }}</td>
             <td>
               <div v-if="paymentCategory.ledger">
-                <router-link :to="{ name: 'LedgerView', params: { ledgerId: paymentCategory.ledger.id } }">{{
+                <router-link :to="{ name: 'UserLedgerView', params: { ledgerId: paymentCategory.ledger.id } }">{{
                   paymentCategory.ledger.id
                 }}</router-link>
               </div>
@@ -76,7 +76,7 @@
             <td class="text-right">
               <div class="btn-group">
                 <router-link
-                  :to="{ name: 'PaymentCategoryView', params: { paymentCategoryId: paymentCategory.id } }"
+                  :to="{ name: 'UserPaymentCategoryView', params: { paymentCategoryId: paymentCategory.id } }"
                   custom
                   v-slot="{ navigate }"
                 >
@@ -86,7 +86,7 @@
                   </button>
                 </router-link>
                 <router-link
-                  :to="{ name: 'PaymentCategoryEdit', params: { paymentCategoryId: paymentCategory.id } }"
+                  :to="{ name: 'UserPaymentCategoryEdit', params: { paymentCategoryId: paymentCategory.id } }"
                   custom
                   v-slot="{ navigate }"
                 >

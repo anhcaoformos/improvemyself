@@ -76,7 +76,7 @@
             <td v-text="t$('improvemyselfApp.AlertType.' + note.alertType)"></td>
             <td>
               <div v-if="note.user">
-                <router-link :to="{ name: 'UserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
+                <router-link :to="{ name: 'JhiUserView', params: { userId: note.user.id } }">{{ note.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">

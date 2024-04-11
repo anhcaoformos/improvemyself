@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.objective.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'ObjectiveCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserObjectiveCreate' }" custom v-slot="{ navigate }">
           <button
             @click="navigate"
             id="jh-create-entity"
@@ -56,41 +56,41 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="objective in objectives" :key="user.id" data-cy="entityTable">
+          <tr v-for="objective in objectives" :key="objective.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'ObjectiveView', params: { objectiveId: user.id } }">{{ user.id }}</router-link>
+              <router-link :to="{ name: 'ObjectiveView', params: { objectiveId: objective.id } }">{{ objective.id }}</router-link>
             </td>
-            <td>{{ user.name }}</td>
-            <td v-text="t$('improvemyselfApp.ObjectiveType.' + user.type)"></td>
-            <td>{{ user.isHidden }}</td>
+            <td>{{ objective.name }}</td>
+            <td v-text="t$('improvemyselfApp.ObjectiveType.' + objective.type)"></td>
+            <td>{{ objective.isHidden }}</td>
             <td>
-              <div v-if="user.paymentCategory">
-                <router-link :to="{ name: 'PaymentCategoryView', params: { paymentCategoryId: user.paymentCategory.id } }">{{
-                  user.paymentCategory.id
+              <div v-if="objective.paymentCategory">
+                <router-link :to="{ name: 'PaymentCategoryView', params: { paymentCategoryId: objective.paymentCategory.id } }">{{
+                  objective.paymentCategory.id
                 }}</router-link>
               </div>
             </td>
             <td>
-              <div v-if="user.ledger">
-                <router-link :to="{ name: 'LedgerView', params: { ledgerId: user.ledger.id } }">{{ user.ledger.id }}</router-link>
+              <div v-if="objective.ledger">
+                <router-link :to="{ name: 'LedgerView', params: { ledgerId: objective.ledger.id } }">{{ objective.ledger.id }}</router-link>
               </div>
             </td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'ObjectiveView', params: { objectiveId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserObjectiveView', params: { objectiveId: objective.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.view')"></span>
                   </button>
                 </router-link>
-                <router-link :to="{ name: 'ObjectiveEdit', params: { objectiveId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserObjectiveEdit', params: { objectiveId: objective.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.edit')"></span>
                   </button>
                 </router-link>
                 <b-button
-                  v-on:click="prepareRemove(user)"
+                  v-on:click="prepareRemove(objective)"
                   variant="danger"
                   class="btn btn-sm"
                   data-cy="entityDeleteButton"

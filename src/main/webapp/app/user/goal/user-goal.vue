@@ -7,7 +7,7 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="t$('improvemyselfApp.goal.home.refreshListLabel')"></span>
         </button>
-        <router-link :to="{ name: 'GoalCreate' }" custom v-slot="{ navigate }">
+        <router-link :to="{ name: 'UserGoalCreate' }" custom v-slot="{ navigate }">
           <button @click="navigate" id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-goal">
             <font-awesome-icon icon="plus"></font-awesome-icon>
             <span v-text="t$('improvemyselfApp.goal.home.createLabel')"></span>
@@ -47,34 +47,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="goal in goals" :key="user.id" data-cy="entityTable">
+          <tr v-for="goal in goals" :key="goal.id" data-cy="entityTable">
             <td>
-              <router-link :to="{ name: 'GoalView', params: { goalId: user.id } }">{{ user.id }}</router-link>
+              <router-link :to="{ name: 'GoalView', params: { goalId: goal.id } }">{{ goal.id }}</router-link>
             </td>
-            <td>{{ user.title }}</td>
-            <td>{{ user.description }}</td>
-            <td v-text="t$('improvemyselfApp.Priority.' + user.priority)"></td>
+            <td>{{ goal.title }}</td>
+            <td>{{ goal.description }}</td>
+            <td v-text="t$('improvemyselfApp.Priority.' + goal.priority)"></td>
             <td>
-              <div v-if="user.ledger">
-                <router-link :to="{ name: 'LedgerView', params: { ledgerId: user.ledger.id } }">{{ user.ledger.id }}</router-link>
+              <div v-if="goal.ledger">
+                <router-link :to="{ name: 'UserLedgerView', params: { ledgerId: goal.ledger.id } }">{{ goal.ledger.id }}</router-link>
               </div>
             </td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'GoalView', params: { goalId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserGoalView', params: { goalId: goal.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.view')"></span>
                   </button>
                 </router-link>
-                <router-link :to="{ name: 'GoalEdit', params: { goalId: user.id } }" custom v-slot="{ navigate }">
+                <router-link :to="{ name: 'UserGoalEdit', params: { goalId: goal.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="t$('entity.action.edit')"></span>
                   </button>
                 </router-link>
                 <b-button
-                  v-on:click="prepareRemove(user)"
+                  v-on:click="prepareRemove(goal)"
                   variant="danger"
                   class="btn btn-sm"
                   data-cy="entityDeleteButton"

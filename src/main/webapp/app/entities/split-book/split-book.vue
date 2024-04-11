@@ -56,7 +56,7 @@
             <td>{{ splitBook.name }}</td>
             <td>
               <div v-if="splitBook.user">
-                <router-link :to="{ name: 'UserView', params: { userId: splitBook.user.id } }">{{ splitBook.user.id }}</router-link>
+                <router-link :to="{ name: 'JhiUserView', params: { userId: splitBook.user.id } }">{{ splitBook.user.id }}</router-link>
               </div>
             </td>
             <td class="text-right">
