@@ -6,6 +6,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,7 +40,7 @@ public abstract class AbstractAuditingEntity<T> implements Serializable {
 
     @CreatedDate
     @Column(name = "created_date", updatable = false)
-    private Instant createdDate = Instant.now();
+    private LocalDateTime createdDate = LocalDateTime.now();
 
     @LastModifiedBy
     @Column(name = "last_modified_by", length = 50)
@@ -47,5 +48,5 @@ public abstract class AbstractAuditingEntity<T> implements Serializable {
 
     @LastModifiedDate
     @Column(name = "last_modified_date")
-    private Instant lastModifiedDate = Instant.now();
+    private LocalDateTime lastModifiedDate = LocalDateTime.now();
 }

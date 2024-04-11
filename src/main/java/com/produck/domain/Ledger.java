@@ -23,7 +23,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "ledger")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class Ledger implements Serializable {
+public class Ledger extends AbstractAuditingEntity<Long> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -53,12 +53,12 @@ public class Ledger implements Serializable {
     @JsonIgnoreProperties(value = { "objective", "paymentMethod", "paymentCategory", "ledger" }, allowSetters = true)
     private Set<Transaction> transactions = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ledger")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ledger", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "ledger", "transaction" }, allowSetters = true)
     private Set<PaymentMethod> paymentMethods = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ledger")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ledger", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "ledger", "transaction", "objective" }, allowSetters = true)
     private Set<PaymentCategory> paymentCategories = new HashSet<>();

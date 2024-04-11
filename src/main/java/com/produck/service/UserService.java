@@ -17,7 +17,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -41,16 +43,20 @@ public class UserService {
 
     private final CacheManager cacheManager;
 
+    private final LedgerService ledgerService;
+
     public UserService(
         UserRepository userRepository,
         PasswordEncoder passwordEncoder,
         AuthorityRepository authorityRepository,
-        CacheManager cacheManager
+        CacheManager cacheManager,
+        LedgerService ledgerService
     ) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
+        this.ledgerService = ledgerService;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -129,6 +135,9 @@ public class UserService {
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
+
+        newUser.addLedger(ledgerService.createLedgerData(newUser, null));
+
         userRepository.save(newUser);
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
@@ -174,6 +183,9 @@ public class UserService {
                 .collect(Collectors.toSet());
             user.setAuthorities(authorities);
         }
+
+        user.addLedger(ledgerService.createLedgerData(user, null));
+
         userRepository.save(user);
         this.clearUserCaches(user);
         log.debug("Created Information for User: {}", user);
@@ -273,6 +285,20 @@ public class UserService {
     @Transactional(readOnly = true)
     public Page<AdminUserDTO> getAllManagedUsers(Pageable pageable) {
         return userRepository.findAll(pageable).map(AdminUserDTO::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<AdminUserDTO> getAllManagedUsersByKeyword(Pageable pageable) {
+        String keyword = null;
+        String role = null;
+        if (pageable.getSort().stream().anyMatch(order -> "authorities".equals(order.getProperty()))) {
+            // Sorting by authorities is specified, use the provided pageable
+            return userRepository.findByKeyword(keyword, pageable).map(AdminUserDTO::new);
+        } else {
+            // Default sorting by user properties (e.g., id, firstName, lastName, etc.)
+            Pageable defaultPageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by("id")); // Change "id" to your desired default property
+            return userRepository.findByKeyword(keyword, defaultPageable).map(AdminUserDTO::new);
+        }
     }
 
     @Transactional(readOnly = true)
